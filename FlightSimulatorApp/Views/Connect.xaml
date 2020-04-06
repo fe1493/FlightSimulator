@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="FlightSimulatorApp.Views.Connect"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FlightSimulatorApp.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="70" d:DesignWidth="340">
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <Label x:Name="IP_Label" Content="IP" Height="30" Width="26" FontSize="16" RenderTransformOrigin="0.41,1.059" />
+            <TextBox x:Name="IP_Textbox" Height="24" TextWrapping="Wrap"  Width="83" FontSize="16" />
+            <Label x:Name="PORT_Label" Content="PORT" Height="30" Width="51" FontSize="16" />
+            <TextBox x:Name="PORT_Textbox" Height="24" TextWrapping="Wrap" Width="83" FontSize="16" />
+            <Button x:Name="ConnectButton" Content="Connect" Height="24" Width="80" Click="ConnectButton_Click" Margin="6,23"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
