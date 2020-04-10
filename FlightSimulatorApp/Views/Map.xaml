@@ -7,13 +7,31 @@
              xmlns:local="clr-namespace:FlightSimulatorApp.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <BitmapImage x:Key="MyImageSource" UriSource="plane.png" />
+
+        <ControlTemplate x:Key="Airplane" TargetType="m:Pushpin">
+            <Grid>
+                <Rectangle Width="20" Height="20">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource = "{StaticResource MyImageSource}"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+            </Grid>
+        </ControlTemplate>
+    </UserControl.Resources>
+
+
+
     <Grid Margin="10,0,0,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="42*"/>
             <ColumnDefinition Width="37*"/>
         </Grid.ColumnDefinitions>
         <m:Map x:Name="myMap" CredentialsProvider="AqwuOHx8GTy7qRDjdTCXC7aDLaW9WxT9d1pjdsGridEk9AJGLcJHvNEDyx98vZVi" ZoomLevel="1.75" Mode="Road" Margin="-20,-120,30,-80" Grid.ColumnSpan="2">
-            <m:Pushpin Margin="380,256,365,303" RenderTransformOrigin="0.2,0.585"></m:Pushpin>
+            <m:Pushpin Margin="370,240,375,369" RenderTransformOrigin="0.2,0.585" Template="{StaticResource Airplane}"></m:Pushpin>
+            <!--<m:MapLayer.Position ="{Binding VM_Location}"/>-->
         </m:Map>
 
     </Grid>

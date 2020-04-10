@@ -29,6 +29,11 @@ namespace FlightSimulatorApp.Views
             //joystickVM = new JoystickViewModel(new MySimulatorModel());
             DataContext = this.joystick;
         }
+        //trying first with string might need to convert to double later on... - DONT FORGET
+        //public string Rudder
+        //{
+        //    get { return model.Throttle; }
+        //}
 
         private void Joystick_Loaded(object sender, RoutedEventArgs e)
         {

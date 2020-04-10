@@ -41,7 +41,7 @@ namespace FlightSimulatorApp.Views
                 if(this.xstring != value)
                 {
                     this.xstring = value;
-                    this.NotifyPropertyChanged("xstring");
+                    this.NotifyPropertyChanged("publicXString");
                 }
             }
         }
@@ -54,7 +54,7 @@ namespace FlightSimulatorApp.Views
                 if (this.ystring != value)
                 {
                     this.ystring = value;
-                    this.NotifyPropertyChanged("ystring");
+                    this.NotifyPropertyChanged("publicYString");
                 }
             }
         }
@@ -76,7 +76,7 @@ namespace FlightSimulatorApp.Views
             knobPosition.Y = 0.00;
             this.publicXString = "0.00";
             this.publicYString = "0.00";
-            normal();
+            Normalize();
         }
 
         private void Knob_MouseMove(object sender, MouseEventArgs e)
@@ -86,11 +86,13 @@ namespace FlightSimulatorApp.Views
             {
                 double x = e.GetPosition(this).X - firstPoint.X;
                 double y = e.GetPosition(this).Y - firstPoint.Y;
-                if (Math.Sqrt(x * x + y * y) < (Base.Width / 2 - KnobBase.Width / 2)+10)
+                if (Math.Sqrt(x * x + y * y) < (Base.Width / 2 - KnobBase.Width / 2)+2)
                 {
                     knobPosition.X = x;
                     knobPosition.Y = y;
+             
                 }
+                Normalize();
 
             }
         }
@@ -116,17 +118,17 @@ namespace FlightSimulatorApp.Views
             knobPosition.Y = 0.00;
             this.publicXString = "0.00";
             this.publicYString = "0.00";
-            normal();
+            Normalize();
 
         }
 
-        public void normal()
+        public void Normalize()
         {
             double knobRadius = (Base.Width / 2) - (KnobBase.Width / 2);
             double x = knobPosition.X / knobRadius;
             double y = -(knobPosition.Y / knobRadius);
             this.publicXString = System.Math.Round(x, 2).ToString();
-            this.publicYString = System.Math.Round(y, 2).ToString();
+            this.publicYString = System.Math.Round(y,2).ToString();
 
         }
     }

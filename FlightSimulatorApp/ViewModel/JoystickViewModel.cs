@@ -31,10 +31,11 @@ namespace FlightSimulatorApp.ViewModel
         //        get { return model.Throttle; }
         //    }
 
-        //    public string Elevator
-        //    {
-        //        get { return model.Elevator; }
-        //    }
+        //public string VM_Elevator
+        //{
+            //make a field and update through the field
+            //set { model.setElevator; }
+       // }
 
         //    public string Aileron
         //    {
