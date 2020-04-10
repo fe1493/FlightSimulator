@@ -10,43 +10,76 @@ namespace FlightSimulatorApp.Model
 {
     public class MySimulatorModel : ISimulatorModel
     {
+        private Mutex mutex = new Mutex();
         public event PropertyChangedEventHandler PropertyChanged;
         MyTelnetClient telnetClient = new MyTelnetClient();
         volatile Boolean stop;
-        public void connect(string ip, int port)
+        public void Connect(string ip, int port)
         {
-            telnetClient.connect(ip, port);
+            telnetClient.Connect(ip, port);
             stop = false;
+            this.Start();
         }
-        public void disconnect()
+        public void Disconnect()
         {
             stop = true;
-            telnetClient.disconnect();
+            telnetClient.Disconnect();
         }
-        public void start()
+        public void Start()
         {
             new Thread(delegate ()
             {
                 while (!stop)
                 {
+                    mutex.WaitOne();
                     // update the variables from the simluator
-                    telnetClient.write("get /instrumentation/heading-indicator/indicated-heading-deg");
-                    Indicated_heading_deg = telnetClient.read();
-                    telnetClient.write("get /instrumentation/gps/indicated-vertical-speed");
-                    Gps_indicated_vertical_speed = telnetClient.read();
-                    telnetClient.write("get /instrumentation/gps/indicated-ground-speed-kt");
-                    gps_indicated_ground_speed_kt = telnetClient.read();
-                    telnetClient.write("get /instrumentation/airspeed-indicator/indicated-speed-kt");
-                    Airspeed_indicator_indicated_speed_kt = telnetClient.read();
-                    telnetClient.write("get /instrumentation/gps/indicated-altitude-ft");
-                    Gps_indicated_altitude_ft = telnetClient.read();
-                    telnetClient.write("get /instrumentation/attitude-indicator/internal-roll-deg");
-                    Attitude_indicator_internal_roll_deg = telnetClient.read();
-                    telnetClient.write("get /instrumentation/attitude-indicator/internal-pitch-deg");
-                    Attitude_indicator_internal_pitch_deg = telnetClient.read();
-                    telnetClient.write("get /instrumentation/altimeter/indicated-altitude-ft");
-                    Altimeter_indicated_altitude_ft = telnetClient.read();
-                    // read the data in 4HZ
+                    telnetClient.Write("get /instrumentation/heading-indicator/indicated-heading-deg\n");
+                    Indicated_heading_deg = telnetClient.Read();
+                    Console.WriteLine(Indicated_heading_deg);
+                    mutex.ReleaseMutex();
+
+                    mutex.WaitOne();
+                    telnetClient.Write("get /instrumentation/gps/indicated-vertical-speed\n");
+                    Gps_indicated_vertical_speed = telnetClient.Read();
+                    Console.WriteLine(Gps_indicated_vertical_speed);
+                    mutex.ReleaseMutex();
+
+                    mutex.WaitOne();
+                    telnetClient.Write("get /instrumentation/gps/indicated-ground-speed-kt\n");
+                    gps_indicated_ground_speed_kt = telnetClient.Read();
+                    Console.WriteLine(gps_indicated_ground_speed_kt);
+                    mutex.ReleaseMutex();
+
+                    mutex.WaitOne();
+                    telnetClient.Write("get /instrumentation/airspeed-indicator/indicated-speed-kt\n");
+                    Airspeed_indicator_indicated_speed_kt = telnetClient.Read();
+                    Console.WriteLine(Airspeed_indicator_indicated_speed_kt);
+                    mutex.ReleaseMutex();
+
+                    mutex.WaitOne();
+                    telnetClient.Write("get /instrumentation/gps/indicated-altitude-ft\n");
+                    Gps_indicated_altitude_ft = telnetClient.Read();
+                    Console.WriteLine(Gps_indicated_altitude_ft);
+                    mutex.ReleaseMutex();
+
+                    mutex.WaitOne();
+                    telnetClient.Write("get /instrumentation/attitude-indicator/internal-roll-deg\n");
+                    Attitude_indicator_internal_roll_deg = telnetClient.Read();
+                    Console.WriteLine(Attitude_indicator_internal_roll_deg);
+                    mutex.ReleaseMutex();
+
+                    mutex.WaitOne();
+                    telnetClient.Write("get /instrumentation/attitude-indicator/internal-pitch-deg\n");
+                    Attitude_indicator_internal_pitch_deg = telnetClient.Read();
+                    Console.WriteLine(Attitude_indicator_internal_pitch_deg);
+                    mutex.ReleaseMutex();
+
+                    mutex.WaitOne();
+                    telnetClient.Write("get /instrumentation/altimeter/indicated-altitude-ft\n");
+                    Altimeter_indicated_altitude_ft = telnetClient.Read();
+                    Console.WriteLine(Altimeter_indicated_altitude_ft);
+                    mutex.ReleaseMutex();
+                    //read the data in 4HZ
                     Thread.Sleep(250);
                 }
             }).Start();
@@ -141,28 +174,25 @@ namespace FlightSimulatorApp.Model
                 NotifyPropertyChanged("Altimeter_indicated_altitude_ft");
             }
         }
-        public void setThrottle(string s)
+        public void SetThrottle(string s)
         {
             string toSend = "set" + "/controls/engines/current-engine/throttle" + s;
-            telnetClient.write(toSend);
+            telnetClient.Write(toSend);
         }
-        public void setRudder(string s)
+        public void SetRudder(string s)
         {
             string toSend = "set" + "/controls/flight/rudder" + s;
-            telnetClient.write(toSend);
+            telnetClient.Write(toSend);
         }
-        public void setElevator(string s)
+        public void SetElevator(string s)
         {
             string toSend = "set" + "/controls/flight/elevator" + s;
-            telnetClient.write(toSend);
+            telnetClient.Write(toSend);
         }
-        public void setAileron(string s)
+        public void SetAileron(string s)
         {
             string toSend = "set" + "/controls/flight/aileron" + s;
-            telnetClient.write(toSend);
+            telnetClient.Write(toSend);
         }
-
-
     }
 }
-

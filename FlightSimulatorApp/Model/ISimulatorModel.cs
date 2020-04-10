@@ -9,9 +9,9 @@ namespace FlightSimulatorApp.Model
 {
     public interface ISimulatorModel : INotifyPropertyChanged
     {
-        void connect(string ip, int port);
-        void disconnect();
-        void start();
+        void Connect(string ip, int port);
+        void Disconnect();
+        void Start();
         string Indicated_heading_deg { set; get; }
         string Gps_indicated_vertical_speed { set; get; }
         string Gps_indicated_ground_speed_kt { set; get; }

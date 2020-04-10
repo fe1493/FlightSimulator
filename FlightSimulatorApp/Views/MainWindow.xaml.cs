@@ -62,7 +62,7 @@ namespace FlightSimulatorApp
 
         private void Connect_Loaded(object sender, RoutedEventArgs e)
         {
-            connect.init();
+            connect.Init();
         }
     }
 }
