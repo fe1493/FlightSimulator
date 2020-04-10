@@ -30,9 +30,9 @@ namespace FlightSimulatorApp.ViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs(propName));
             }
         }
-        public void connect(string ip, int port)
+        public void Connect(string ip, int port)
         {
-            model.connect(ip, port);
+            model.Connect(ip, port);
         }
     }
 }

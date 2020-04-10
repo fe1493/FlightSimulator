@@ -33,9 +33,9 @@ namespace FlightSimulatorApp.Views
 
         public void ConnectButton_Click(object sender, RoutedEventArgs e)
         {
-            vm.connect(IP_Textbox.Text, Int32.Parse(PORT_Textbox.Text));
+            vm.Connect(IP_Textbox.Text, Int32.Parse(PORT_Textbox.Text));
         }
-        public void init()
+        public void Init()
         {
             vm = (Application.Current as App).MainViewModel.connectViewModel;
         }
