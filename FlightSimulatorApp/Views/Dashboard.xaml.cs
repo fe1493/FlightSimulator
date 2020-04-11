@@ -36,15 +36,12 @@ namespace FlightSimulatorApp.Views
         public Dashboard()
         {
             InitializeComponent();
-            DataContext = DashboardVM;
-
         }
 
         public void Init()
         {
             DashboardVM = (Application.Current as App).MainViewModel.dashboardViewModel;
-
-
+            DataContext = DashboardVM;
         }
 
 

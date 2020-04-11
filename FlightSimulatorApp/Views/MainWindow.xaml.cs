@@ -64,5 +64,10 @@ namespace FlightSimulatorApp
         {
             connect.Init();
         }
+
+        private void Dashboard_Loaded(object sender, RoutedEventArgs e)
+        {
+            dashboard.Init();
+        }
     }
 }
