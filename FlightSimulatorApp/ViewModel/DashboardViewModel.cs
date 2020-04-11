@@ -9,7 +9,7 @@ using System.Web;
 
 namespace FlightSimulatorApp.ViewModel
 {
-    class DashboardViewModel : INotifyPropertyChanged
+  public  class DashboardViewModel : INotifyPropertyChanged
     {
         private MySimulatorModel model;
         public DashboardViewModel(MySimulatorModel model)

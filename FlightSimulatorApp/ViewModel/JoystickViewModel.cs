@@ -9,7 +9,7 @@ using FlightSimulatorApp.Model;
 namespace FlightSimulatorApp.ViewModel
 {
     //The Joystick ViewModel 
-    class JoystickViewModel : INotifyPropertyChanged
+   public class JoystickViewModel : INotifyPropertyChanged
     {
         private MySimulatorModel model;
         public JoystickViewModel(MySimulatorModel model)

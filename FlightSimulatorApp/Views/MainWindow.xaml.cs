@@ -26,7 +26,7 @@ namespace FlightSimulatorApp
         {
             InitializeComponent();
             //vm = new SimulatorViewModel(new MySimulatorModel(new MyTelnetClient()));
-            // DataContext = vm;
+            //DataContext = vm;
 
         }
 
