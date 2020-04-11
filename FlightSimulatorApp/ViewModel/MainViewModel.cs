@@ -11,10 +11,12 @@ namespace FlightSimulatorApp.ViewModel
     {
         MySimulatorModel model;
         public ConnectViewModel connectViewModel;
+        public DashboardViewModel dashboardViewModel;
         public MainViewModel(MySimulatorModel model)
         {
             this.model = model;
             this.connectViewModel = new ConnectViewModel(this.model);
+            this.dashboardViewModel = new DashboardViewModel(this.model);
         }
     }
 }
