@@ -16,14 +16,19 @@ namespace FlightSimulatorApp.Model
         StreamReader sr;
         StreamWriter sw;
         private Mutex mutex = new Mutex();
+        Boolean isConnect = false;
 
         public void Connect(string ip, int port)
         {
             try
             {
-                clientSocket.Connect(ip, port);
-                sr = new StreamReader(clientSocket.GetStream());
-                sw = new StreamWriter(clientSocket.GetStream());
+                if (!isConnect)
+                {
+                    clientSocket.Connect(ip, port);
+                    sr = new StreamReader(clientSocket.GetStream());
+                    sw = new StreamWriter(clientSocket.GetStream());
+                    isConnect = true;
+                }
             }
             catch(Exception e)
             {
@@ -35,10 +40,18 @@ namespace FlightSimulatorApp.Model
         {
             try
             {
-                mutex.WaitOne();
-                sw.WriteLine(command);
-                sw.Flush();
-                mutex.ReleaseMutex();
+                if (isConnect)
+                {
+                    mutex.WaitOne();
+                    sw.WriteLine(command);
+                    sw.Flush();
+                    Console.WriteLine("Sent: " + command);
+                    mutex.ReleaseMutex();
+                }
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine(e);
             }
             catch(Exception e)
             {
@@ -49,8 +62,12 @@ namespace FlightSimulatorApp.Model
         {
             try
             {
-                string data = sr.ReadLine();
-                return data;
+                if (isConnect)
+                {
+                    string data = sr.ReadLine();
+                    return data;
+                }
+                return null;
             }
             catch(Exception e)
             {
@@ -60,9 +77,17 @@ namespace FlightSimulatorApp.Model
         }
         public void Disconnect()
         {
-            sr.Close();
-            sw.Close();
-            clientSocket.Close();
+            if (isConnect)
+            {
+                if (sr != null)
+                    sr.Close();
+                if (sw != null)
+                    sw.Close();
+                if (clientSocket != null)
+                    clientSocket.Close();
+                isConnect = false;
+            }
+            
         }
     }
 }

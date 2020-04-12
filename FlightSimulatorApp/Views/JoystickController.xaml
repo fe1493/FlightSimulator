@@ -14,8 +14,8 @@
 
         <Label x:Name ="AileronText" Content="   Aileron" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize=" 15" Margin="445,0,260,-3" Height="34" Width="95" />
 
-        <Slider x:Name="Aileron" VerticalAlignment="Bottom" Margin="319,0,140,25" ValueChanged="Rudder_ValueChanged" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" RenderTransformOrigin="0.472,0.556" 
-                SelectionStart="0" Maximum="1" Minimum="-1">
+        <Slider x:Name="Aileron" VerticalAlignment="Bottom" Margin="319,0,140,25" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" RenderTransformOrigin="0.472,0.556" 
+                SelectionStart="0" Maximum="1" Minimum="-1" Value="{Binding VM_Aileron, Mode=OneWayToSource}">
             <Slider.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -41,7 +41,7 @@
         </Label>
 
         <Slider x:Name="Throttle" VerticalAlignment="Bottom" Margin="171,0,348,212" ValueChanged="Rudder_ValueChanged" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" RenderTransformOrigin="0.472,0.556" 
-                SelectionStart="0" Minimum="0" Maximum="1" Height="24" >
+                SelectionStart=".50000" Minimum="0" Maximum="1" Height="24" Value="{Binding VM_Throttle, Mode=OneWayToSource}" >
             <Slider.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -66,8 +66,8 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock x:Name="RudderCoordinates" Height="23" TextWrapping="Wrap" Text="{Binding Path = publicXString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Margin="630,30,120,0"  />
-        <TextBlock x:Name="ElevatorCoordinates" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Path = publicYString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="47" Margin="678,77,0,0" RenderTransformOrigin="0.5,0.5">
+        <TextBlock x:Name="RudderCoordinates" Height="23" TextWrapping="Wrap" Text="{Binding publicXString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Margin="630,30,120,0"  />
+        <TextBlock x:Name="ElevatorCoordinates" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding publicYString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="47" Margin="678,77,0,0" RenderTransformOrigin="0.5,0.5">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
