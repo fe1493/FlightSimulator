@@ -25,9 +25,6 @@ namespace FlightSimulatorApp
         public MainWindow()
         {
             InitializeComponent();
-            //vm = new SimulatorViewModel(new MySimulatorModel(new MyTelnetClient()));
-            //DataContext = vm;
-
         }
 
         private void Joystick_Loaded(object sender, RoutedEventArgs e)
@@ -47,7 +44,7 @@ namespace FlightSimulatorApp
 
         private void JoystickController_Loaded(object sender, RoutedEventArgs e)
         {
-
+            JoystickController.Init();
         }
 
         private void Map_Loaded_1(object sender, RoutedEventArgs e)

@@ -31,8 +31,8 @@ namespace FlightSimulatorApp.Model
             {
                 while (!stop)
                 {
+                    // update dashboard variables
                     mutex.WaitOne();
-                    // update the variables from the simluator
                     telnetClient.Write("get /instrumentation/heading-indicator/indicated-heading-deg\n");
                     Indicated_heading_deg = telnetClient.Read();
                     Console.WriteLine(Indicated_heading_deg);
@@ -83,6 +83,27 @@ namespace FlightSimulatorApp.Model
                     Thread.Sleep(250);
                 }
             }).Start();
+            // update Map variables
+            new Thread(delegate ()
+            {
+                while (!stop)
+                {
+                    mutex.WaitOne();
+                    telnetClient.Write("get /position/latitude-deg\n");
+                    Latitude_deg = telnetClient.Read();
+                    Console.WriteLine(Latitude_deg);
+                    mutex.ReleaseMutex();
+
+                    mutex.WaitOne();
+                    telnetClient.Write("get /position/longitude-deg\n");
+                    Longitude_deg = telnetClient.Read();
+                    Console.WriteLine(Longitude_deg);
+                    mutex.ReleaseMutex();
+
+                    //read the data in 4HZ
+                    Thread.Sleep(250);
+                }
+            }).Start();
         }
 
         public void NotifyPropertyChanged(string propName)
@@ -102,6 +123,27 @@ namespace FlightSimulatorApp.Model
         private string attitude_indicator_internal_roll_deg;
         private string attitude_indicator_internal_pitch_deg;
         private string altimeter_indicated_altitude_ft;
+        private string latitude_deg;
+        private string longitude_deg;
+        
+        public string Latitude_deg
+        {
+            get { return latitude_deg; }
+            set
+            {
+                latitude_deg = value;
+                NotifyPropertyChanged("Latitude_deg");
+            }
+        }
+        public string Longitude_deg
+        {
+            get { return longitude_deg; }
+            set
+            {
+                longitude_deg = value;
+                NotifyPropertyChanged("Latitude_deg");
+            }
+        }
         public string Indicated_heading_deg
         {
             get { return indicated_heading_deg; }

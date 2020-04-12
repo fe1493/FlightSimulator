@@ -36,7 +36,7 @@
             
             <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="2" Grid.Column="0">gps_indicated-vertical-speed</TextBlock>
             <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="2" Grid.Column="1" Text="{Binding Path=VM_Gps_indicated_vertical_speed , Mode = OneWay,  StringFormat= 0.0# }"></TextBlock>
-
+            
             <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="3" Grid.Column="0">gps_indicated-ground-speed-kt</TextBlock>
             <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="3" Grid.Column="1" Text="{Binding Path=VM_Gps_indicated_ground_speed_kt , Mode = OneWay,  StringFormat= 0.0# }"></TextBlock>
 

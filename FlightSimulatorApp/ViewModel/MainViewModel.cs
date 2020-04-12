@@ -13,6 +13,7 @@ namespace FlightSimulatorApp.ViewModel
         public ConnectViewModel connectViewModel;
         public DashboardViewModel dashboardViewModel;
         public JoystickViewModel joystickViewModel;
+        public MapViewModel mapViewModel;
 
         public MainViewModel(MySimulatorModel model)
         {
@@ -20,6 +21,7 @@ namespace FlightSimulatorApp.ViewModel
             this.connectViewModel = new ConnectViewModel(this.model);
             this.dashboardViewModel = new DashboardViewModel(this.model);
             this.joystickViewModel = new JoystickViewModel(this.model);
+            this.mapViewModel = new MapViewModel(this.model);
         }
     }
 }
