@@ -34,6 +34,10 @@ namespace FlightSimulatorApp.ViewModel
         {
             model.Connect(ip, port);
         }
+        public void Disconnect()
+        {
+            model.Disconnect();
+        }
     }
 }
 

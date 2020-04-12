@@ -26,10 +26,7 @@ namespace FlightSimulatorApp.ViewModel
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
         }
         //Properties
-        //    public string Throttle
-        //    {
-        //        get { return model.Throttle; }
-        //    }
+
 
         public string VM_Elevator
         {
@@ -42,16 +39,37 @@ namespace FlightSimulatorApp.ViewModel
             }
         }
 
-        //    public string Aileron
-        //    {
-        //        get { return model.Aileron; }
-        //    }
+        public string VM_Rudder
+        {
+            set
+            {
+                if (Double.Parse(value) <= 1 && Double.Parse(value) >= -1)
+                {
+                    model.SetRudder(value);
+                }
+            }
+        }
 
-        //    public string Rudder
-        //    {
-        //        get { return model.Rudder; }
-        //    }
+        public string VM_Throttle
+        {
+            set
+            {
+                if (Double.Parse(value) <= 1 && Double.Parse(value) >= 0)
+                {
+                    model.SetThrottle(value);
+                }
+            }
+        }
 
-        //}
+        public string VM_Aileron
+        {
+            set
+            {
+                if (Double.Parse(value) <= 1 && Double.Parse(value) >= -1)
+                {
+                    model.SetAileron(value);
+                }
+            }
+        }
     }
 }

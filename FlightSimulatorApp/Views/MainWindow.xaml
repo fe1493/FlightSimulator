@@ -32,11 +32,11 @@
         </Viewbox>
 
         <Viewbox Grid.Column="0"  Grid.RowSpan="3" Height = "600" Margin="-100,50,0,0">
-            <Controls:Map x:Name ="MyMap" RenderTransformOrigin="0.473,0.483" Height="585" Width="908" Loaded="Map_Loaded_2"/>
+            <Controls:Map x:Name ="MyMap" RenderTransformOrigin="0.473,0.483" Height="585" Width="908"/>
 
         </Viewbox>
 
-        <Controls:Connect x:Name="connect" Loaded="Connect_Loaded" />
+        <Controls:Connect x:Name="connect" Loaded="Connect_Loaded" Margin="10,-42,345,41.667" Grid.ColumnSpan="2" />
 
     </Grid>
 </Window>

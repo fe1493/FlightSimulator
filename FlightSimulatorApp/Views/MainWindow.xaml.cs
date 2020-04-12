@@ -47,15 +47,7 @@ namespace FlightSimulatorApp
             JoystickController.Init();
         }
 
-        private void Map_Loaded_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Map_Loaded_2(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private void Connect_Loaded(object sender, RoutedEventArgs e)
         {

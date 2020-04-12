@@ -22,8 +22,11 @@ namespace FlightSimulatorApp.Model
         }
         public void Disconnect()
         {
-            stop = true;
-            telnetClient.Disconnect();
+            if (!stop)
+            {
+                stop = true;
+                telnetClient.Disconnect();
+            }
         }
         public void Start()
         {
@@ -218,23 +221,35 @@ namespace FlightSimulatorApp.Model
         }
         public void SetThrottle(string s)
         {
-            string toSend = "set" + "/controls/engines/current-engine/throttle" + s;
+            mutex.WaitOne();
+            string toSend = "set " + "/controls/engines/current-engine/throttle " + s + "\n";
             telnetClient.Write(toSend);
+            telnetClient.Read();
+            mutex.ReleaseMutex();
         }
         public void SetRudder(string s)
         {
-            string toSend = "set" + "/controls/flight/rudder" + s;
+            mutex.WaitOne();
+            string toSend = "set " + "/controls/flight/rudder " + s + "\n";
             telnetClient.Write(toSend);
+            telnetClient.Read();
+            mutex.ReleaseMutex();
         }
         public void SetElevator(string s)
         {
-            string toSend = "set" + "/controls/flight/elevator" + s;
+            mutex.WaitOne();
+            string toSend = "set " + "/controls/flight/elevator " + s + "\n";
             telnetClient.Write(toSend);
+            telnetClient.Read();
+            mutex.ReleaseMutex();
         }
         public void SetAileron(string s)
         {
-            string toSend = "set" + "/controls/flight/aileron" + s;
+            mutex.WaitOne();
+            string toSend = "set " + "/controls/flight/aileron " + s + "\n";
             telnetClient.Write(toSend);
+            telnetClient.Read();
+            mutex.ReleaseMutex();
         }
     }
 }
