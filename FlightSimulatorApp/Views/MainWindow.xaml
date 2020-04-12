@@ -32,7 +32,7 @@
         </Viewbox>
 
         <Viewbox Grid.Column="0"  Grid.RowSpan="3" Height = "600" Margin="-100,50,0,0">
-            <Controls:Map x:Name ="MyMap" RenderTransformOrigin="0.473,0.483" Height="585" Width="908"/>
+            <Controls:Map x:Name ="MyMap" RenderTransformOrigin="0.473,0.483" Height="585" Width="908" Loaded="MyMap_Loaded"/>
 
         </Viewbox>
 

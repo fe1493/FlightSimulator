@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Maps.MapControl.WPF;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -82,16 +83,7 @@ namespace FlightSimulatorApp.Model
                     Altimeter_indicated_altitude_ft = telnetClient.Read();
                     Console.WriteLine(Altimeter_indicated_altitude_ft);
                     mutex.ReleaseMutex();
-                    //read the data in 4HZ
-                    Thread.Sleep(250);
-                }
-            }).Start();
 
-            // update Map variables
-            new Thread(delegate ()
-            {
-                while (!stop)
-                {
                     mutex.WaitOne();
                     telnetClient.Write("get /position/latitude-deg\n");
                     Latitude_deg = telnetClient.Read();
@@ -102,6 +94,12 @@ namespace FlightSimulatorApp.Model
                     telnetClient.Write("get /position/longitude-deg\n");
                     Longitude_deg = telnetClient.Read();
                     Console.WriteLine(Longitude_deg);
+                    mutex.ReleaseMutex();
+
+                    mutex.WaitOne();
+                    double Latitude = Convert.ToDouble(this.Latitude_deg);
+                    double Longitude = Convert.ToDouble(this.Longitude_deg);
+                    Location = Latitude + "," + Longitude;
                     mutex.ReleaseMutex();
 
                     //read the data in 4HZ
@@ -129,6 +127,7 @@ namespace FlightSimulatorApp.Model
         private string altimeter_indicated_altitude_ft;
         private string latitude_deg;
         private string longitude_deg;
+        private string location;
         
 
         public string Indicated_heading_deg
@@ -219,6 +218,19 @@ namespace FlightSimulatorApp.Model
             {
                 longitude_deg = value;
                 NotifyPropertyChanged("Longitude_deg");
+            }
+        }
+
+        public string Location
+        {
+            get
+            {
+                return this.location;
+            }
+            set
+            {
+                location = value;
+                NotifyPropertyChanged("Location");
             }
         }
 

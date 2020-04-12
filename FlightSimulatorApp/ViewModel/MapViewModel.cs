@@ -26,6 +26,21 @@ namespace FlightSimulatorApp.ViewModel
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
         }
 
+        //private MySimulatorModel model;
+        //public MapViewModel(MySimulatorModel model)
+        //{
+        //    this.model = model;
+        //    model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
+        //    { NotifyPropertyChanged("VM_" + e.PropertyName); };
+        //}
+
+        //public event PropertyChangedEventHandler PropertyChanged;
+        //public void NotifyPropertyChanged(string propName)
+        //{
+        //    if (this.PropertyChanged != null)
+        //        this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
+        //}
+
 
         public string VM_Latitude_deg
         {
@@ -38,13 +53,11 @@ namespace FlightSimulatorApp.ViewModel
             get
             { return this.model.Longitude_deg; }
         }
-        public Location VM_Location
+        public string VM_Location
         {
             get
             {
-                double Latitude = Convert.ToDouble(this.VM_Latitude_deg);
-                double Longitude = Convert.ToDouble(this.VM_Longitude_deg);
-                return new Location(Latitude, Longitude);
+                return model.Location;
             }
         }
 

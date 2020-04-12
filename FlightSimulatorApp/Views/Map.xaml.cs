@@ -40,6 +40,5 @@ namespace FlightSimulatorApp.Views
             DataContext = mapVM;
             //this.location = mapVM.VM_Location;
         }
-
     }
 }

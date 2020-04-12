@@ -58,5 +58,10 @@ namespace FlightSimulatorApp
         {
             dashboard.Init();
         }
+
+        private void MyMap_Loaded(object sender, RoutedEventArgs e)
+        {
+            MyMap.Init();
+        }
     }
 }
