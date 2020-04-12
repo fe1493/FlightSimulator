@@ -30,8 +30,7 @@
             <ColumnDefinition Width="37*"/>
         </Grid.ColumnDefinitions>
         <m:Map x:Name="myMap" CredentialsProvider="AqwuOHx8GTy7qRDjdTCXC7aDLaW9WxT9d1pjdsGridEk9AJGLcJHvNEDyx98vZVi" ZoomLevel="1.75" Mode="Road" Margin="-20,-120,30,-80" Grid.ColumnSpan="2">
-            <m:Pushpin Margin="370,240,375,369" RenderTransformOrigin="0.2,0.585" Template="{StaticResource Airplane}"></m:Pushpin>
-            <!--<m:MapLayer.Position ="{Binding VM_Location}"/>-->
+            <m:Pushpin Template="{StaticResource Airplane}" m:MapLayer.Position="{Binding VM_Location}" Margin="455,225,290,384"/>
         </m:Map>
 
     </Grid>

@@ -83,6 +83,7 @@ namespace FlightSimulatorApp.Model
                     Thread.Sleep(250);
                 }
             }).Start();
+
             // update Map variables
             new Thread(delegate ()
             {
@@ -126,24 +127,7 @@ namespace FlightSimulatorApp.Model
         private string latitude_deg;
         private string longitude_deg;
         
-        public string Latitude_deg
-        {
-            get { return latitude_deg; }
-            set
-            {
-                latitude_deg = value;
-                NotifyPropertyChanged("Latitude_deg");
-            }
-        }
-        public string Longitude_deg
-        {
-            get { return longitude_deg; }
-            set
-            {
-                longitude_deg = value;
-                NotifyPropertyChanged("Latitude_deg");
-            }
-        }
+
         public string Indicated_heading_deg
         {
             get { return indicated_heading_deg; }
@@ -216,6 +200,25 @@ namespace FlightSimulatorApp.Model
                 NotifyPropertyChanged("Altimeter_indicated_altitude_ft");
             }
         }
+        public string Latitude_deg
+        {
+            get { return latitude_deg; }
+            set
+            {
+                latitude_deg = value;
+                NotifyPropertyChanged("Latitude_deg");
+            }
+        }
+        public string Longitude_deg
+        {
+            get { return longitude_deg; }
+            set
+            {
+                longitude_deg = value;
+                NotifyPropertyChanged("Longitude_deg");
+            }
+        }
+
         public void SetThrottle(string s)
         {
             string toSend = "set" + "/controls/engines/current-engine/throttle" + s;

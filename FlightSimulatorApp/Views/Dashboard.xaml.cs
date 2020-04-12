@@ -20,16 +20,7 @@ namespace FlightSimulatorApp.Views
     /// <summary>
     /// Interaction logic for Dashboard.xaml
     /// </summary>
-    // the property implementation
-    // all the variables from the plane
-    //private string indicated_heading_deg;
-    //  private string gps_indicated_vertical_speed;
-    // private string gps_indicated_ground_speed_kt;
-    // private string airspeed_indicator_indicated_speed_kt;
-    //  private string gps_indicated_altitude_ft;
-    //  private string attitude_indicator_internal_roll_deg;
-    // private string attitude_indicator_internal_pitch_deg;
-    // private string altimeter_indicated_altitude_ft;
+
     public partial class Dashboard : UserControl
     {
         DashboardViewModel DashboardVM;

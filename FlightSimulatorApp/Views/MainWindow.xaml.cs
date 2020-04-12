@@ -25,6 +25,7 @@ namespace FlightSimulatorApp
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private void Joystick_Loaded(object sender, RoutedEventArgs e)
@@ -32,10 +33,7 @@ namespace FlightSimulatorApp
 
         }
 
-        private void Map_Loaded(object sender, RoutedEventArgs e)
-        {
-            // myMap.Mode = new AerialMode(true);
-        }
+
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -47,15 +45,14 @@ namespace FlightSimulatorApp
             JoystickController.Init();
         }
 
-        private void Map_Loaded_1(object sender, RoutedEventArgs e)
+        private void Map_Loaded(object sender, RoutedEventArgs e)
         {
+            MyMap.Init();
 
         }
 
-        private void Map_Loaded_2(object sender, RoutedEventArgs e)
-        {
 
-        }
+
 
         private void Connect_Loaded(object sender, RoutedEventArgs e)
         {

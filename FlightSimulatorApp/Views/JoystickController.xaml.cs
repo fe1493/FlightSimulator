@@ -36,6 +36,7 @@ namespace FlightSimulatorApp.Views
 
         private void Joystick_Loaded(object sender, RoutedEventArgs e)
         {
+         
 
 
         }
