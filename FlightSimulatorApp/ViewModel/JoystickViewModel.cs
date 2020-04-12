@@ -9,7 +9,7 @@ using FlightSimulatorApp.Model;
 namespace FlightSimulatorApp.ViewModel
 {
     //The Joystick ViewModel 
-   public class JoystickViewModel : INotifyPropertyChanged
+    public class JoystickViewModel : INotifyPropertyChanged
     {
         private MySimulatorModel model;
         public JoystickViewModel(MySimulatorModel model)
@@ -31,11 +31,16 @@ namespace FlightSimulatorApp.ViewModel
         //        get { return model.Throttle; }
         //    }
 
-        //public string VM_Elevator
-        //{
-            //make a field and update through the field
-            //set { model.setElevator; }
-       // }
+        public string VM_Elevator
+        {
+            set
+            {
+                if (Double.Parse(value) <= 1 && Double.Parse(value) >= -1)
+                {
+                    model.SetElevator(value);
+                }
+            }
+        }
 
         //    public string Aileron
         //    {

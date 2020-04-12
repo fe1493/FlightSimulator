@@ -36,7 +36,7 @@
             
             <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="2" Grid.Column="0">gps_indicated-vertical-speed</TextBlock>
             <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="2" Grid.Column="1" Text="{Binding Path=VM_Gps_indicated_vertical_speed , Mode = OneWay,  StringFormat= 0.0# }"></TextBlock>
-
+            
             <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="3" Grid.Column="0">gps_indicated-ground-speed-kt</TextBlock>
             <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="3" Grid.Column="1" Text="{Binding Path=VM_Gps_indicated_ground_speed_kt, Mode = OneWay,  StringFormat= 0.0# }"></TextBlock>
 
@@ -45,17 +45,17 @@
 
 
             <TextBlock FontSize="14" FontWeight="Bold" Grid.Row="5" Grid.Column="0"> gps_indicated-altitude_ft</TextBlock>
-            <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="4" Grid.Column="1" Text="{Binding  Path=VM_Gps_indicated_altitude_ft, Mode = OneWay,  StringFormat= 0.0#}"></TextBlock>
+            <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="5" Grid.Column="1" Text="{Binding  Path=VM_Gps_indicated_altitude_ft, Mode = OneWay,  StringFormat= 0.0#}"></TextBlock>
 
 
             <TextBlock FontSize="14" FontWeight="Bold" Grid.Row="6" Grid.Column="0"> attitude-indicator_internal-roll-deg</TextBlock>
-            <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="4" Grid.Column="1" Text="{Binding  Path=VM_Attitude_indicator_internal_roll_deg, Mode = OneWay,  StringFormat= 0.0#}"></TextBlock>
+            <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="6" Grid.Column="1" Text="{Binding  Path=VM_Attitude_indicator_internal_roll_deg, Mode = OneWay,  StringFormat= 0.0#}"></TextBlock>
 
             <TextBlock FontSize="13" FontWeight="Bold" Grid.Row="7" Grid.Column="0"> attitude-indicator_internal-pitch-deg</TextBlock>
-            <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="4" Grid.Column="1" Text="{Binding  Path=VM_Attitude_indicator_internal_pitch_deg, Mode = OneWay,  StringFormat= 0.0#}"></TextBlock>
+            <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="7" Grid.Column="1" Text="{Binding  Path=VM_Attitude_indicator_internal_pitch_deg, Mode = OneWay,  StringFormat= 0.0#}"></TextBlock>
 
             <TextBlock FontSize="14" FontWeight="Bold" Grid.Row="8" Grid.Column="0">altimeter_indicated-altitude-ft</TextBlock>
-            <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="4" Grid.Column="1" Text="{Binding Path=VM_Altimeter_indicated_altitude_ft, Mode = OneWay,  StringFormat= 0.0#}"></TextBlock>
+            <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="8" Grid.Column="1" Text="{Binding Path=VM_Altimeter_indicated_altitude_ft, Mode = OneWay,  StringFormat= 0.0#}"></TextBlock>
 
 
 

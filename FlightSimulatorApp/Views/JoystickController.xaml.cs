@@ -22,18 +22,17 @@ namespace FlightSimulatorApp.Views
     /// </summary>
     public partial class JoystickController : UserControl
     {
-        //JoystickViewModel joystickVM;
+        JoystickViewModel joystickVM;
         public JoystickController()
         {
             InitializeComponent();
-            //joystickVM = new JoystickViewModel(new MySimulatorModel());
-            DataContext = this.joystick;
         }
-        //trying first with string might need to convert to double later on... - DONT FORGET
-        //public string Rudder
-        //{
-        //    get { return model.Throttle; }
-        //}
+
+        public void Init()
+        {
+            joystickVM = (Application.Current as App).MainViewModel.joystickViewModel;
+            DataContext = joystickVM;
+        }
 
         private void Joystick_Loaded(object sender, RoutedEventArgs e)
         {
