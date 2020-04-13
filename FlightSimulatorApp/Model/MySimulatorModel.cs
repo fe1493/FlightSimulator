@@ -50,7 +50,7 @@ namespace FlightSimulatorApp.Model
 
                     mutex.WaitOne();
                     telnetClient.Write("get /instrumentation/gps/indicated-ground-speed-kt\n");
-                    gps_indicated_ground_speed_kt = telnetClient.Read();
+                    Gps_indicated_ground_speed_kt = telnetClient.Read();
                     Console.WriteLine(gps_indicated_ground_speed_kt);
                     mutex.ReleaseMutex();
 

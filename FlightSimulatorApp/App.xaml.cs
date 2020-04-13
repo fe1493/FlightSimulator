@@ -32,6 +32,8 @@ namespace FlightSimulatorApp
             wnd.Title = "FlightGear Simulator";
             // Show the window
             wnd.Show();
+
+            
         }
     }
 }

@@ -14,6 +14,7 @@
             <TextBox x:Name="PORT_Textbox" Height="24" TextWrapping="Wrap" Width="83" FontSize="16" />
             <Button x:Name="ConnectButton" Content="Connect" Height="24" Width="80" Click="ConnectButton_Click" Margin="6,23"/>
             <Button x:Name="DisconnectButton" Content="Disconnect" Height="24" Width="80" Margin="6,23" Click="DisconnectButton_Click"/>
+            
         </StackPanel>
     </Grid>
 </UserControl>

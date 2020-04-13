@@ -21,6 +21,16 @@ namespace FlightSimulatorApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        //private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs)
+        //{
+            
+        //}
+
+        //private void Window_Closed(object sender, EventArgs e)
+        //{
+           
+
+        //}
         //SimulatorViewModel vm;
         public MainWindow()
         {
