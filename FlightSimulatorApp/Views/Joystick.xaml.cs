@@ -23,41 +23,40 @@ namespace FlightSimulatorApp.Views
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private Point firstPoint = new Point();
-        private string xstring;
-        private string ystring;
+ 
+        private double rudderValue;
+        private double elevatorValue;
 
         public Joystick()
         {
             InitializeComponent();
-            this.xstring = "0.00";
-            this.ystring = "0.00";
+            this.rudderValue = 0.00;
+            this.elevatorValue = 0.00;
         }
 
-        public string publicXString
+        public double RudderValue
         {
-            get { return this.xstring; }
+            get { return (double)GetValue(RudderValueProperty); }
             set
             {
-                if(this.xstring != value)
-                {
-                    this.xstring = value;
-                    this.NotifyPropertyChanged("publicXString");
-                }
+                SetValue(RudderValueProperty, value);
             }
         }
 
-        public string publicYString
+        public static readonly DependencyProperty RudderValueProperty = DependencyProperty.Register("RudderValue", typeof(double), typeof(Joystick));
+
+
+        public double ElevatorValue
         {
-            get { return this.ystring; }
+            get { return (double)GetValue(ElevatorValueProperty); }
             set
             {
-                if (this.ystring != value)
-                {
-                    this.ystring = value;
-                    this.NotifyPropertyChanged("publicYString");
-                }
+                SetValue(ElevatorValueProperty, value);
             }
         }
+
+        public static readonly DependencyProperty ElevatorValueProperty = DependencyProperty.Register("ElevatorValue", typeof(double), typeof(Joystick));
+
 
 
         public void NotifyPropertyChanged(string propName)
@@ -74,8 +73,8 @@ namespace FlightSimulatorApp.Views
             //return to the middle once we let go of the mouse
             knobPosition.X = 0.00;
             knobPosition.Y = 0.00;
-            this.publicXString = "0.00";
-            this.publicYString = "0.00";
+            this.RudderValue = 0.00;
+            this.ElevatorValue = 0.00;
             Normalize();
         }
 
@@ -116,8 +115,8 @@ namespace FlightSimulatorApp.Views
 
             knobPosition.X = 0.00;
             knobPosition.Y = 0.00;
-            this.publicXString = "0.00";
-            this.publicYString = "0.00";
+            this.RudderValue = 0.00;
+            this.ElevatorValue = 0.00;
             Normalize();
 
         }
@@ -127,8 +126,8 @@ namespace FlightSimulatorApp.Views
             double knobRadius = (Base.Width / 2) - (KnobBase.Width / 2);
             double x = knobPosition.X / knobRadius;
             double y = -(knobPosition.Y / knobRadius);
-            this.publicXString = System.Math.Round(x, 2).ToString();
-            this.publicYString = System.Math.Round(y,2).ToString();
+            this.RudderValue = System.Math.Round(x, 2);
+            this.ElevatorValue = System.Math.Round(y, 2);
 
         }
     }

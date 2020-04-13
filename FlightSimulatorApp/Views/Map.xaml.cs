@@ -27,7 +27,7 @@ namespace FlightSimulatorApp.Views
     public partial class Map : UserControl
     {
         MapViewModel mapVM;
-        Location location = new Location() { Latitude = 0, Longitude = 0 };
+       // Location location = new Location() { Latitude = 0, Longitude = 0 };
 
         public Map()
         {

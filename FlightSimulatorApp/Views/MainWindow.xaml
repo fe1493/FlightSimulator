@@ -38,5 +38,7 @@
 
         <Controls:Connect x:Name="connect" Loaded="Connect_Loaded" Margin="10,-42,345,41.667" Grid.ColumnSpan="2" />
 
+        <Label x:Name="Errors" Content="Error Information:" FontSize="20" FontWeight="Regular" Background="AliceBlue" Foreground="Red" Margin="0,230.25,32.5,88.25" Grid.Row="2"> </Label>
+
     </Grid>
 </Window>
