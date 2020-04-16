@@ -44,5 +44,11 @@ namespace FlightSimulatorApp.Views
         {
                 vm.Disconnect();
         }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            vm.Disconnect();
+            System.Windows.Application.Current.Shutdown();
+        }
     }
 }

@@ -5,16 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FlightSimulatorApp.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="70" d:DesignWidth="340">
+             d:DesignHeight="70" d:DesignWidth="520">
     <Grid>
-        <StackPanel Orientation="Horizontal" Margin="0,0,-90,0">
-            <Label x:Name="IP_Label" Content="IP" Height="30" Width="26" FontSize="16" RenderTransformOrigin="0.41,1.059" />
-            <TextBox x:Name="IP_Textbox" Height="24" TextWrapping="Wrap"  Width="83" FontSize="16" />
-            <Label x:Name="PORT_Label" Content="PORT" Height="30" Width="51" FontSize="16" />
-            <TextBox x:Name="PORT_Textbox" Height="24" TextWrapping="Wrap" Width="83" FontSize="16" />
-            <Button x:Name="ConnectButton" Content="Connect" Height="24" Width="80" Click="ConnectButton_Click" Margin="6,23"/>
-            <Button x:Name="DisconnectButton" Content="Disconnect" Height="24" Width="80" Margin="6,23" Click="DisconnectButton_Click"/>
-            
+        <StackPanel Orientation="Horizontal">
+            <Label x:Name="IP_Label" Content="IP" Height="30" Width="26" FontSize="16" RenderTransformOrigin="0.41,1.059" FontFamily="Impact" />
+            <TextBox x:Name="IP_Textbox" Height="24" TextWrapping="Wrap"  Width="83" FontSize="16" FontFamily="Impact" Opacity="0.7" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" />
+            <Label x:Name="PORT_Label" Content="PORT" Height="30" Width="51" FontSize="16" FontFamily="Impact" />
+            <TextBox x:Name="PORT_Textbox" Height="24" TextWrapping="Wrap" Width="83" FontSize="16" FontFamily="Impact" Opacity="0.7" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" />
+            <Button x:Name="ConnectButton" Content="Connect" Height="24" Width="80" Click="ConnectButton_Click" Margin="10,23" FontFamily="Impact" />
+            <Button x:Name="DisconnectButton" Content="Disconnect" Height="24" Width="80"  Click="DisconnectButton_Click" FontFamily="Impact" />
+            <Button x:Name="ExitButton" Content="Exit" Height="24" Width="80"  Click="ExitButton_Click" Margin="10,23" FontFamily="Impact"/>
+
         </StackPanel>
     </Grid>
 </UserControl>

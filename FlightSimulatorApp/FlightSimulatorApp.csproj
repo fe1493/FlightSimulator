@@ -146,6 +146,9 @@
   <ItemGroup>
     <Resource Include="SimulatorVariables.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="תיקונים.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
