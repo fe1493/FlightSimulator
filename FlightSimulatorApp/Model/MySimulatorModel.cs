@@ -111,13 +111,18 @@ namespace FlightSimulatorApp.Model
                         Longitude_deg = telnetClient.Read();
                         Console.WriteLine(Longitude_deg);
                         mutex.ReleaseMutex();
-
-                        mutex.WaitOne();
-                        double Latitude = Convert.ToDouble(this.Latitude_deg);
-                        double Longitude = Convert.ToDouble(this.Longitude_deg);
-                        Location = Latitude + "," + Longitude;
-                        mutex.ReleaseMutex();
-
+                        try
+                        {
+                            mutex.WaitOne();
+                            double Latitude = Convert.ToDouble(this.Latitude_deg);
+                            double Longitude = Convert.ToDouble(this.Longitude_deg);
+                            Location = Latitude + "," + Longitude;
+                            mutex.ReleaseMutex();
+                        }
+                        catch(Exception e)
+                        {
+                            Error = e.Message + "\n";
+                        }
                         //read the data in 4HZ
                         Thread.Sleep(250);
                     }
