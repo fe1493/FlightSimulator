@@ -73,5 +73,10 @@ namespace FlightSimulatorApp
         {
             MyMap.Init();
         }
+
+        private void ErrorsMassage_Loaded(object sender, RoutedEventArgs e)
+        {
+            ErrorsMassage.DataContext = (Application.Current as App).MainViewModel.connectViewModel;
+        }
     }
 }

@@ -11,8 +11,8 @@
 
 
         <local:Joystick x:Name="joystick" Height="430" Width=" 600" Margin="190,10,10,10" Loaded="Joystick_Loaded" 
-                        ElevatorValue="{Binding VM_Elevator, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                        RudderValue="{Binding VM_Rudder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        ElevatorValue="{Binding VM_Elevator, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                        RudderValue="{Binding VM_Rudder, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" />
 
         <Label x:Name ="AileronText" Content="   Aileron" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize=" 15" Margin="445,0,260,-3" Height="34" Width="95" />
 

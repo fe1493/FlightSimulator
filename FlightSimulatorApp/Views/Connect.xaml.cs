@@ -24,7 +24,6 @@ namespace FlightSimulatorApp.Views
     public partial class Connect : UserControl
     {
         public ConnectViewModel vm;
-        Boolean stop = true;
         public Connect()
         {
             InitializeComponent();
@@ -34,12 +33,7 @@ namespace FlightSimulatorApp.Views
 
         public void ConnectButton_Click(object sender, RoutedEventArgs e)
         {
-            if (stop)
-            {
-                stop = false;
-                vm.Connect(IP_Textbox.Text, Int32.Parse(PORT_Textbox.Text));
-            }
-                
+                vm.Connect(IP_Textbox.Text, Int32.Parse(PORT_Textbox.Text));   
         }
         public void Init()
         {
@@ -48,11 +42,7 @@ namespace FlightSimulatorApp.Views
 
         private void DisconnectButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!stop)
-            {
-                stop = true;
                 vm.Disconnect();
-            }
         }
     }
 }
