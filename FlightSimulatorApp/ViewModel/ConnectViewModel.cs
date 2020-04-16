@@ -38,6 +38,11 @@ namespace FlightSimulatorApp.ViewModel
         {
             model.Disconnect();
         }
+
+        public String VM_Error
+        {
+            get { return model.Error; }
+        }
     }
 }
 
