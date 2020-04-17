@@ -353,14 +353,12 @@ namespace FlightSimulatorApp.Model
             }
             set
             {
-                if (Convert.ToDouble(this.longitude_deg) > -180 && Convert.ToDouble(this.longitude_deg) < 180 && Convert.ToDouble(this.latitude_deg) > -90 &&
-                    Convert.ToDouble(this.latitude_deg) < 90)
+                if (value != null)
                 {
                     location = value;
                     NotifyPropertyChanged("Location");
                 }
-                //else
-                //{ throw }
+                
             }
         }
 

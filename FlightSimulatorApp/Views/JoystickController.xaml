@@ -5,18 +5,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FlightSimulatorApp.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" HorizontalAlignment="Left">
+             d:DesignHeight="480" d:DesignWidth="800" HorizontalAlignment="Left">
 
-    <Grid RenderTransformOrigin="0.431,0.504" Margin="-10,0,0,0">
+    <Grid RenderTransformOrigin="0.431,0.504" Margin="0,10,-10,-10">
 
 
         <local:Joystick x:Name="joystick" Height="430" Width=" 600" Margin="190,10,10,10" Loaded="Joystick_Loaded" 
                         ElevatorValue="{Binding VM_Elevator, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
                         RudderValue="{Binding VM_Rudder, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" />
 
-        <Label x:Name ="AileronText" Content="   Aileron" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize=" 15" Margin="445,0,260,-3" Height="34" Width="95" />
+        <Label x:Name ="AileronText" Content=" Aileron"  FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize=" 22" Margin="455,451,245,-17" Height="46" Width="110" />
 
-        <Slider x:Name="Aileron" VerticalAlignment="Bottom" Margin="319,0,140,25" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" RenderTransformOrigin="0.472,0.556" 
+        <Slider x:Name="Aileron" VerticalAlignment="Bottom" Margin="319,0,140,47" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" RenderTransformOrigin="0.472,0.556" 
                 SelectionStart="0" Maximum="1" Minimum="-1" Value="{Binding VM_Aileron, Mode=OneWayToSource}">
             <Slider.RenderTransform>
                 <TransformGroup>
@@ -31,7 +31,7 @@
         <TextBlock Text="{Binding ElementName=Aileron, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat=0.0#}" DockPanel.Dock="Right" TextAlignment="Center" Margin="665,415,95,10" RenderTransformOrigin="0.345,0.773"/>
 
 
-        <Label x:Name ="ThrottleText"  Content="Throttle" HorizontalAlignment="Left" Margin="217,210,0,205" VerticalAlignment="Center" FontSize=" 15" RenderTransformOrigin="0.5,-0.2" Height="35" Width="73"   >
+        <Label x:Name ="ThrottleText"  Content="Throttle" FontWeight="Bold" HorizontalAlignment="Left" Margin="200,228,0,188" VerticalAlignment="Center" FontSize=" 22" RenderTransformOrigin="0.5,-0.2" Height="34" Width="108"   >
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -42,7 +42,7 @@
             </Label.RenderTransform>
         </Label>
 
-        <Slider x:Name="Throttle" VerticalAlignment="Bottom" Margin="171,0,348,212" ValueChanged="Rudder_ValueChanged" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" RenderTransformOrigin="0.472,0.556" 
+        <Slider x:Name="Throttle" VerticalAlignment="Bottom" Margin="180,0,357,221" ValueChanged="Rudder_ValueChanged" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" RenderTransformOrigin="0.472,0.556" 
                 SelectionStart=".50000" Minimum="0" Maximum="1" Height="24" Value="{Binding VM_Throttle, Mode=OneWayToSource}" >
             <Slider.RenderTransform>
                 <TransformGroup>
@@ -57,8 +57,8 @@
 
 
 
-        <TextBlock x:Name="RudderText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Rudder" VerticalAlignment="Top" Margin="470,28,0,0" Height="18" FontSize="15"/>
-        <TextBlock x:Name="ElevatorText" FontSize="15" TextWrapping="Wrap" Text="Elevator" VerticalAlignment="Top" Margin="648,230,60,0" RenderTransformOrigin="0.5,0.5">
+        <TextBlock x:Name="RudderText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Rudder" FontWeight="Bold"  VerticalAlignment="Top" Margin="440,25,0,0" Height="36" FontSize="22" Width="115"/>
+        <TextBlock x:Name="ElevatorText" FontSize="22" TextWrapping="Wrap" Text="Elevator" FontWeight="Bold" VerticalAlignment="Top" Margin="648,230,60,0" RenderTransformOrigin="0.5,0.5">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -68,8 +68,8 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock x:Name="RudderCoordinates" Height="23" TextWrapping="Wrap" Text="{Binding ElementName=joystick, Path=RudderValue,  UpdateSourceTrigger=PropertyChanged, StringFormat=0.0#}" VerticalAlignment="Top" Margin="610,23,140,0"  />
-        <TextBlock x:Name="ElevatorCoordinates" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding ElementName=joystick, Path=ElevatorValue,  UpdateSourceTrigger=PropertyChanged, StringFormat=0.0# }" VerticalAlignment="Top" Width="47" Margin="685,85,0,0" RenderTransformOrigin="0.5,0.5">
+        <TextBlock x:Name="RudderCoordinates" Height="23" TextWrapping="Wrap" Text="{Binding ElementName=joystick, Path=RudderValue,  UpdateSourceTrigger=PropertyChanged, StringFormat=0.0#}" VerticalAlignment="Top" Margin="595,36,155,0"  />
+        <TextBlock x:Name="ElevatorCoordinates" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding ElementName=joystick, Path=ElevatorValue,  UpdateSourceTrigger=PropertyChanged, StringFormat=0.0# }" VerticalAlignment="Top" Width="47" Margin="665,120,0,0" RenderTransformOrigin="0.5,0.5">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

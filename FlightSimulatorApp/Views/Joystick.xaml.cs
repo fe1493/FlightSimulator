@@ -29,10 +29,6 @@ namespace FlightSimulatorApp.Views
         {
             InitializeComponent();
         }
-
-
-
-
         public double RudderValue
         {
             get { return (double)GetValue(RudderValueProperty); }
@@ -116,7 +112,6 @@ namespace FlightSimulatorApp.Views
             knobPosition.Y = 0;
             this.RudderValue = 0.00;
             this.ElevatorValue = 0.00;
-
         }
 
         //resets the joystick if the mouse leaves the restricted area
