@@ -7,6 +7,7 @@ using System.Net.Sockets;
 using System.Threading;
 using System.IO;
 using System.Diagnostics;
+using System.Windows;
 
 namespace FlightSimulatorApp.Model
 {
@@ -15,7 +16,7 @@ namespace FlightSimulatorApp.Model
         TcpClient clientSocket;
         StreamReader sr;
         StreamWriter sw;
-        private Mutex mutex = new Mutex();
+        private Mutex mutex;
         public Boolean isConnect = false;
 
         public void Connect(string ip, int port)
@@ -25,6 +26,7 @@ namespace FlightSimulatorApp.Model
                 if (!isConnect)
                 {
                     clientSocket = new TcpClient();
+                    mutex = new Mutex();
                     // try to connect
                     var result = clientSocket.BeginConnect(ip, port, null, null);
                     // wait 1 seconds if the server is not responding
@@ -44,7 +46,7 @@ namespace FlightSimulatorApp.Model
             }
             catch(Exception e)
             {
-                throw e;
+                throw new Exception(e.Message);
             }
         }
 
@@ -54,16 +56,14 @@ namespace FlightSimulatorApp.Model
             {
                 if (isConnect)
                 {
-                    mutex.WaitOne();
                     sw.WriteLine(command);
                     sw.Flush();
                     Console.WriteLine("Sent: " + command);
-                    mutex.ReleaseMutex();
                 }
             }
             catch(Exception e)
             {
-                throw e;
+                throw new Exception(e.Message);
             }
         }
         public string Read()
@@ -73,11 +73,17 @@ namespace FlightSimulatorApp.Model
                 if (isConnect)
                 {
                     Stopwatch stopWatch = new Stopwatch();
+                    stopWatch.Start();
                     string data = sr.ReadLine();
                     // check if the server is not responsing for 10 seconds
                     if (stopWatch.ElapsedMilliseconds > 10000)
                     {
-                        throw new Exception ("Server not responding for 10 seconds!");
+                        (Application.Current as App).MainViewModel.model.Error = "Server slows down\n";
+                        return data;
+                    }
+                    if (data == "ERR")
+                    {
+                        return null;
                     }
                     return data;
                 }
@@ -85,7 +91,7 @@ namespace FlightSimulatorApp.Model
             }
             catch(Exception e)
             {
-                throw e;
+                throw new Exception(e.Message);
             }
         }
         public void Disconnect()

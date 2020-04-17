@@ -9,7 +9,7 @@ namespace FlightSimulatorApp.ViewModel
 {
     public class MainViewModel
     {
-        MySimulatorModel model;
+        public MySimulatorModel model;
         public ConnectViewModel connectViewModel;
         public DashboardViewModel dashboardViewModel;
         public JoystickViewModel joystickViewModel;
