@@ -1,2 +1,4 @@
 327340089, Efraim Paley
 203625264, Yonatan Gat
+
+We implemented MVVM as Pavel explained

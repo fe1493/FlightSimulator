@@ -372,6 +372,7 @@ namespace FlightSimulatorApp.Model
             telnetClient.Read();
             mutex.ReleaseMutex();
         }
+
         public void SetRudder(string s)
         {
             mutex.WaitOne();
@@ -380,6 +381,7 @@ namespace FlightSimulatorApp.Model
             telnetClient.Read();
             mutex.ReleaseMutex();
         }
+
         public void SetElevator(string s)
         {
             mutex.WaitOne();
@@ -388,6 +390,7 @@ namespace FlightSimulatorApp.Model
             telnetClient.Read();
             mutex.ReleaseMutex();
         }
+
         public void SetAileron(string s)
         {
             mutex.WaitOne();
@@ -397,6 +400,7 @@ namespace FlightSimulatorApp.Model
             mutex.ReleaseMutex();
         }
 
+        // Error message property
         private String error = "";
         public String Error
         {
