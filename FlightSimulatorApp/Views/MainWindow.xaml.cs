@@ -36,7 +36,7 @@ namespace FlightSimulatorApp
         {
             InitializeComponent();
         }
-
+ 
         private void Joystick_Loaded(object sender, RoutedEventArgs e)
         {
 

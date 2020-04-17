@@ -42,7 +42,10 @@ namespace FlightSimulatorApp.Views
 
         private void DisconnectButton_Click(object sender, RoutedEventArgs e)
         {
-                vm.Disconnect();
+            vm.Disconnect();
+
+
+
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
