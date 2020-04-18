@@ -59,14 +59,14 @@ namespace FlightSimulatorApp.Model
         // Reset the values at the dashboard and the joystick.
         public void Reset()
         {
-            Indicated_heading_deg = "--";
-            Gps_indicated_vertical_speed = "--";
-            Gps_indicated_ground_speed_kt = "--";
-            Airspeed_indicator_indicated_speed_kt = "--";
-            Gps_indicated_altitude_ft = "--";
-            Attitude_indicator_internal_roll_deg = "--";
-            Attitude_indicator_internal_pitch_deg = "--";
-            Altimeter_indicated_altitude_ft = "--";
+            Indicated_heading_deg = "0.000";
+            Gps_indicated_vertical_speed = "0.000";
+            Gps_indicated_ground_speed_kt = "0.000";
+            Airspeed_indicator_indicated_speed_kt = "0.000";
+            Gps_indicated_altitude_ft = "0.000";
+            Attitude_indicator_internal_roll_deg = "0.000";
+            Attitude_indicator_internal_pitch_deg = "0.000";
+            Altimeter_indicated_altitude_ft = "0.000";
             Location = "32.0055,34.8854";
         }
 
