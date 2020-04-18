@@ -25,6 +25,7 @@ namespace FlightSimulatorApp.ViewModel
             if (this.PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
         }
+
         //Properties
 
         public string VM_Indicated_heading_deg

@@ -24,6 +24,7 @@ namespace FlightSimulatorApp.Views
     public partial class Connect : UserControl
     {
         public ConnectViewModel vm;
+        public JoystickController joystickController;
         public Connect()
         {
             InitializeComponent();
@@ -33,18 +34,19 @@ namespace FlightSimulatorApp.Views
 
         public void ConnectButton_Click(object sender, RoutedEventArgs e)
         {
-                vm.Connect(IP_Textbox.Text, Int32.Parse(PORT_Textbox.Text));   
+            vm.Connect(IP_Textbox.Text, Int32.Parse(PORT_Textbox.Text));
+            joystickController.Aileron.Value = 0;
+            joystickController.Throttle.Value = 0;
         }
-        public void Init()
+        public void Init(JoystickController joystickController)
         {
             vm = (Application.Current as App).MainViewModel.connectViewModel;
+            this.joystickController = joystickController;
         }
 
         private void DisconnectButton_Click(object sender, RoutedEventArgs e)
         {
             vm.Disconnect();
-
-
 
         }
 

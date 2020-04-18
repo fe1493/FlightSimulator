@@ -42,6 +42,7 @@ namespace FlightSimulatorApp.Model
                     sr = new StreamReader(clientSocket.GetStream());
                     sw = new StreamWriter(clientSocket.GetStream());
                     isConnect = true;
+                    (Application.Current as App).MainViewModel.model.Error = "Connection Established!\n";
                 }
             }
             catch(Exception e)

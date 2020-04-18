@@ -11,16 +11,22 @@ namespace FlightSimulatorApp.Model
 {
     public class MySimulatorModel : ISimulatorModel
     {
-        private Mutex mutex = new Mutex();
+        private Mutex mutex;
         public event PropertyChangedEventHandler PropertyChanged;
-        MyTelnetClient telnetClient = new MyTelnetClient();
-        volatile Boolean stop;
+        MyTelnetClient telnetClient;
+
+        public MySimulatorModel()
+        {
+            mutex = new Mutex();
+            telnetClient = new MyTelnetClient();
+            Location = "32.0055,34.8854";
+        }
         public void Connect(string ip, int port)
         {
             try
             {
+                Reset();
                 telnetClient.Connect(ip, port);
-                stop = !(telnetClient.isConnect);
                 this.Start();
             }
             catch (Exception e)
@@ -32,16 +38,25 @@ namespace FlightSimulatorApp.Model
         {
             try
             {
-                if (!stop)
-                {
-                    stop = true;
-                    telnetClient.Disconnect();
-                }
+                telnetClient.Disconnect();
             }
             catch (Exception e)
             {
                 Error = e.Message + "\n";
             }
+        }
+
+        public void Reset()
+        {
+            Indicated_heading_deg = "--";
+            Gps_indicated_vertical_speed = "--";
+            Gps_indicated_ground_speed_kt = "--";
+            Airspeed_indicator_indicated_speed_kt = "--";
+            Gps_indicated_altitude_ft = "--";
+            Attitude_indicator_internal_roll_deg = "--";
+            Attitude_indicator_internal_pitch_deg = "--";
+            Altimeter_indicated_altitude_ft = "--";
+            Location = "32.0055,34.8854";
         }
         public void Start()
         {
@@ -49,7 +64,7 @@ namespace FlightSimulatorApp.Model
             {
                 new Thread(delegate ()
                 {
-                    while (!stop)
+                    while (telnetClient.isConnect)
                     {
                         // update dashboard variables
                         try
@@ -358,7 +373,7 @@ namespace FlightSimulatorApp.Model
                     location = value;
                     NotifyPropertyChanged("Location");
                 }
-                
+
             }
         }
 

@@ -27,7 +27,6 @@ namespace FlightSimulatorApp.ViewModel
         }
         //Properties
 
-
         public string VM_Elevator
         {
             set
