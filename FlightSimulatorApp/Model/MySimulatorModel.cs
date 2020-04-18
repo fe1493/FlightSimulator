@@ -24,6 +24,7 @@ namespace FlightSimulatorApp.Model
             mutex = new Mutex();
             telnetClient = new MyTelnetClient();
             Location = "32.0055,34.8854";
+            Reset();
         }
 
         // Connect to the server.
