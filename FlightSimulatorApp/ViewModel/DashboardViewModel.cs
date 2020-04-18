@@ -11,8 +11,8 @@ namespace FlightSimulatorApp.ViewModel
 {
     public class DashboardViewModel : INotifyPropertyChanged
     {
-        private MySimulatorModel model;
-        public DashboardViewModel(MySimulatorModel model)
+        private ISimulatorModel model;
+        public DashboardViewModel(ISimulatorModel model)
         {
             this.model = model;
             model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)

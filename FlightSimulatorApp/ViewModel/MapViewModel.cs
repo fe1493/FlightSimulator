@@ -11,8 +11,8 @@ namespace FlightSimulatorApp.ViewModel
 {
     public class MapViewModel : INotifyPropertyChanged
     {
-        private MySimulatorModel model;
-        public MapViewModel(MySimulatorModel model)
+        private ISimulatorModel model;
+        public MapViewModel(ISimulatorModel model)
         {
             this.model = model;
             model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)

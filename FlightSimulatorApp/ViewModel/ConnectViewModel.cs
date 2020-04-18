@@ -8,13 +8,17 @@ using System.Threading.Tasks;
 
 namespace FlightSimulatorApp.ViewModel
 {
+    /// <summary>
+    /// Connect ViewModel Class.
+    /// </summary>
     public class ConnectViewModel : INotifyPropertyChanged
     {
-        private MySimulatorModel model;
-        public ConnectViewModel(MySimulatorModel model)
+        private ISimulatorModel model;
+
+        public ConnectViewModel(ISimulatorModel model)
         {
             this.model = model;
-            // every time the model notify about change, the vm also notify about change
+            // Every time the model notify about change, the vm also notify about change.
             model.PropertyChanged +=
                 delegate (Object sender, PropertyChangedEventArgs e)
                 {
@@ -30,15 +34,20 @@ namespace FlightSimulatorApp.ViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs(propName));
             }
         }
+
+        // Connect to server.
         public void Connect(string ip, int port)
         {
             model.Connect(ip, port);
         }
+
+        // Disconnet from the server.
         public void Disconnect()
         {
             model.Disconnect();
         }
 
+        // Error message.
         public String VM_Error
         {
             get { return model.Error; }

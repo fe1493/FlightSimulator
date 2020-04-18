@@ -9,22 +9,29 @@ using System.Threading.Tasks;
 
 namespace FlightSimulatorApp.Model
 {
+    /// <summary>
+    /// Model for flight Simulator.
+    /// </summary>
     public class MySimulatorModel : ISimulatorModel
     {
         private Mutex mutex;
         public event PropertyChangedEventHandler PropertyChanged;
         MyTelnetClient telnetClient;
 
+        // Constructor.
         public MySimulatorModel()
         {
             mutex = new Mutex();
             telnetClient = new MyTelnetClient();
             Location = "32.0055,34.8854";
         }
+
+        // Connect to the server.
         public void Connect(string ip, int port)
         {
             try
             {
+                // Reset the values at the dashboard and the joystick.
                 Reset();
                 telnetClient.Connect(ip, port);
                 this.Start();
@@ -34,6 +41,8 @@ namespace FlightSimulatorApp.Model
                 Error = e.Message + "\n";
             }
         }
+
+        // Disconnect from the server.
         public void Disconnect()
         {
             try
@@ -46,6 +55,7 @@ namespace FlightSimulatorApp.Model
             }
         }
 
+        // Reset the values at the dashboard and the joystick.
         public void Reset()
         {
             Indicated_heading_deg = "--";
@@ -58,6 +68,8 @@ namespace FlightSimulatorApp.Model
             Altimeter_indicated_altitude_ft = "--";
             Location = "32.0055,34.8854";
         }
+
+        // Get the values from the simulator.
         public void Start()
         {
             try
@@ -66,7 +78,7 @@ namespace FlightSimulatorApp.Model
                 {
                     while (telnetClient.isConnect)
                     {
-                        // update dashboard variables
+                        // Update dashboard variables.
                         try
                         {
                             mutex.WaitOne();
@@ -206,7 +218,7 @@ namespace FlightSimulatorApp.Model
                         {
                             Error = e.Message + "\n";
                         }
-                        //read the data in 4HZ
+                        // Read the data in 4HZ
                         Thread.Sleep(250);
                     }
                 }).Start();
@@ -224,8 +236,9 @@ namespace FlightSimulatorApp.Model
                 PropertyChanged(this, new PropertyChangedEventArgs(propName));
             }
         }
-        // the property implementation
-        // all the variables from the plane
+
+        // The property implementation.
+        // All the variables from the plane.
         private string indicated_heading_deg;
         private string gps_indicated_vertical_speed;
         private string gps_indicated_ground_speed_kt;
@@ -237,7 +250,6 @@ namespace FlightSimulatorApp.Model
         private string latitude_deg;
         private string longitude_deg;
         private string location;
-
 
         public string Indicated_heading_deg
         {
@@ -251,6 +263,7 @@ namespace FlightSimulatorApp.Model
                 }
             }
         }
+
         public string Gps_indicated_vertical_speed
         {
             get { return gps_indicated_vertical_speed; }
@@ -275,6 +288,7 @@ namespace FlightSimulatorApp.Model
                 }
             }
         }
+
         public string Airspeed_indicator_indicated_speed_kt
         {
             get { return airspeed_indicator_indicated_speed_kt; }
@@ -287,6 +301,7 @@ namespace FlightSimulatorApp.Model
                 }
             }
         }
+
         public string Gps_indicated_altitude_ft
         {
             get { return gps_indicated_altitude_ft; }
@@ -299,6 +314,7 @@ namespace FlightSimulatorApp.Model
                 }
             }
         }
+
         public string Attitude_indicator_internal_roll_deg
         {
             get { return attitude_indicator_internal_roll_deg; }
@@ -311,6 +327,7 @@ namespace FlightSimulatorApp.Model
                 }
             }
         }
+
         public string Attitude_indicator_internal_pitch_deg
         {
             get { return attitude_indicator_internal_pitch_deg; }
@@ -323,6 +340,7 @@ namespace FlightSimulatorApp.Model
                 }
             }
         }
+
         public string Altimeter_indicated_altitude_ft
         {
             get { return altimeter_indicated_altitude_ft; }
@@ -335,6 +353,7 @@ namespace FlightSimulatorApp.Model
                 }
             }
         }
+
         public string Latitude_deg
         {
             get { return latitude_deg; }
@@ -347,6 +366,7 @@ namespace FlightSimulatorApp.Model
                 }
             }
         }
+
         public string Longitude_deg
         {
             get { return longitude_deg; }

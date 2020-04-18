@@ -11,6 +11,9 @@ using System.Windows;
 
 namespace FlightSimulatorApp.Model
 {
+    /// <summary>
+    /// Telnet Client Class
+    /// </summary>
     public class MyTelnetClient
     {
         TcpClient clientSocket;
@@ -19,6 +22,7 @@ namespace FlightSimulatorApp.Model
         private Mutex mutex;
         public Boolean isConnect = false;
 
+        // Make the connection with the server.
         public void Connect(string ip, int port)
         {
             try
@@ -27,17 +31,17 @@ namespace FlightSimulatorApp.Model
                 {
                     clientSocket = new TcpClient();
                     mutex = new Mutex();
-                    // try to connect
+                    // Try to connect.
                     var result = clientSocket.BeginConnect(ip, port, null, null);
-                    // wait 1 seconds if the server is not responding
+                    // Wait 1 seconds if the server is not responding.
                     var success = result.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1));
-                    // if failed, throw exception
+                    // If failed, throw exception.
                     if (!success)
                     {
                         throw new Exception("Failed to connect.");
                     }
 
-                    // we have connected
+                    // We have connected
                     clientSocket.EndConnect(result);
                     sr = new StreamReader(clientSocket.GetStream());
                     sw = new StreamWriter(clientSocket.GetStream());
@@ -51,6 +55,7 @@ namespace FlightSimulatorApp.Model
             }
         }
 
+        // Write to the server.
         public void Write(string command)
         {
             try
@@ -67,6 +72,8 @@ namespace FlightSimulatorApp.Model
                 throw new Exception(e.Message);
             }
         }
+
+        // Read from the server.
         public string Read()
         {
             try
@@ -76,17 +83,20 @@ namespace FlightSimulatorApp.Model
                     Stopwatch stopWatch = new Stopwatch();
                     stopWatch.Start();
                     string data = sr.ReadLine();
-                    // check if the server is not responsing for 10 seconds
+                    // Check if the server is not responsing for 10 seconds.
                     if (stopWatch.ElapsedMilliseconds > 10000)
                     {
                         (Application.Current as App).MainViewModel.model.Error = "Server slows down\n";
                         return data;
                     }
-                    if (data == "ERR")
+                    if (double.TryParse(data, out _))
                     {
-                        return null;
+                        return data;
                     }
-                    return data;
+                    else
+                    {
+                        (Application.Current as App).MainViewModel.model.Error = "Invalid values!\n";
+                    }
                 }
                 return null;
             }
@@ -95,6 +105,8 @@ namespace FlightSimulatorApp.Model
                 throw new Exception(e.Message);
             }
         }
+
+        // Disconnect from the server.
         public void Disconnect()
         {
             if (isConnect)

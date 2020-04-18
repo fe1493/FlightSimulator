@@ -7,15 +7,18 @@ using System.Threading.Tasks;
 
 namespace FlightSimulatorApp.ViewModel
 {
+    /// <summary>
+    /// Main ViewModel Class.
+    /// </summary>
     public class MainViewModel
     {
-        public MySimulatorModel model;
+        public ISimulatorModel model;
         public ConnectViewModel connectViewModel;
         public DashboardViewModel dashboardViewModel;
         public JoystickViewModel joystickViewModel;
         public MapViewModel mapViewModel;
 
-        public MainViewModel(MySimulatorModel model)
+        public MainViewModel(ISimulatorModel model)
         {
             this.model = model;
             this.connectViewModel = new ConnectViewModel(this.model);

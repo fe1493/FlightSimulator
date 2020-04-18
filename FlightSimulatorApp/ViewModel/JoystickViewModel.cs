@@ -11,8 +11,8 @@ namespace FlightSimulatorApp.ViewModel
     //The Joystick ViewModel 
     public class JoystickViewModel : INotifyPropertyChanged
     {
-        private MySimulatorModel model;
-        public JoystickViewModel(MySimulatorModel model)
+        private ISimulatorModel model;
+        public JoystickViewModel(ISimulatorModel model)
         {
             this.model = model;
             model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
