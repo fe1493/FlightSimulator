@@ -9,22 +9,29 @@ using Microsoft.Maps.MapControl.WPF;
 
 namespace FlightSimulatorApp.ViewModel
 {
+    // Map ViewModel.
     public class MapViewModel : INotifyPropertyChanged
     {
-        private ISimulatorModel model;
-        public MapViewModel(ISimulatorModel model)
+        private MySimulatorModel model;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+
+        // Ctor for Map ViewModel.
+        public MapViewModel(MySimulatorModel model)
         {
             this.model = model;
             model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
             { NotifyPropertyChanged("VM_" + e.PropertyName); };
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        // Notify when property is changed.
         public void NotifyPropertyChanged(string propName)
         {
             if (this.PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
         }
+
+        //Properties for the Map ViewModel connected to the Model.
 
         public string VM_Latitude_deg
         {

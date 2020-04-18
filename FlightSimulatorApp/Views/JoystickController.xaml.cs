@@ -18,52 +18,36 @@ using FlightSimulatorApp.Model;
 namespace FlightSimulatorApp.Views
 {
     /// <summary>
-    /// Interaction logic for JoystickController.xaml
+    /// Interaction logic for JoystickController.xaml.
     /// </summary>
+   // The Joystick Controller View.
     public partial class JoystickController : UserControl
     {
         JoystickViewModel joystickVM;
+
+        // Ctor for the Joystick Controller View.
         public JoystickController()
         {
             InitializeComponent();
         }
 
+        // Intialize the different local components.
         public void Init()
         {
             joystickVM = (Application.Current as App).MainViewModel.joystickViewModel;
+            // Make the DataContext the JoystickVM.
             DataContext = joystickVM;
         }
 
-        private void Joystick_Loaded(object sender, RoutedEventArgs e)
-        {
-         
+        private void Joystick_Loaded(object sender, RoutedEventArgs e){}
 
-
-        }
-
-
-
-        private void Throttle_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-
-        }
-
-        private void Rudder_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-
-        }
-
-        private void AileronCoordinates_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-
-
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+        private void Throttle_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) { }
+      
+        private void Rudder_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) { }
+     
+        private void AileronCoordinates_TextChanged(object sender, TextChangedEventArgs e) { }
+  
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e) { }
     }
 }
 

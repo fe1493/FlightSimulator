@@ -8,29 +8,35 @@ using FlightSimulatorApp.Model;
 
 namespace FlightSimulatorApp.ViewModel
 {
-    //The Joystick ViewModel 
+    // The Joystick ViewModel.
     public class JoystickViewModel : INotifyPropertyChanged
     {
-        private ISimulatorModel model;
-        public JoystickViewModel(ISimulatorModel model)
+
+        private MySimulatorModel model;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        // Ctor for the Joystick ViewModel. 
+        public JoystickViewModel(MySimulatorModel model)
         {
             this.model = model;
             model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
             { NotifyPropertyChanged("VM_" + e.PropertyName); };
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        // Notify when property is changed.
         public void NotifyPropertyChanged(string propName)
         {
             if (this.PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
         }
-        //Properties
+
+        //Properties for the Joystick ViewModel connected to the Model.
 
         public string VM_Elevator
         {
             set
             {
+                // Check if the values are in the correct range.
                 if (Double.Parse(value) <= 1 && Double.Parse(value) >= -1)
                 {
                     model.SetElevator(value);
@@ -42,6 +48,7 @@ namespace FlightSimulatorApp.ViewModel
         {
             set
             {
+                // Check if the values are in the correct range.
                 if (Double.Parse(value) <= 1 && Double.Parse(value) >= -1)
                 {
                     model.SetRudder(value);
@@ -53,6 +60,7 @@ namespace FlightSimulatorApp.ViewModel
         {
             set
             {
+                // Check if the values are in the correct range.
                 if (Double.Parse(value) <= 1 && Double.Parse(value) >= 0)
                 {
                     model.SetThrottle(value);
@@ -64,6 +72,7 @@ namespace FlightSimulatorApp.ViewModel
         {
             set
             {
+                // Check if the values are in the correct range.
                 if (Double.Parse(value) <= 1 && Double.Parse(value) >= -1)
                 {
                     model.SetAileron(value);

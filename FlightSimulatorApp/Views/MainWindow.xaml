@@ -31,7 +31,7 @@
         </Viewbox>
 
         <Viewbox Grid.Column="1" Grid.Row="0" Height = "auto" Margin="0,0,-25,0" Grid.RowSpan="2">
-            <Controls:Dashboard x:Name="dashboard" RenderTransformOrigin="0.5,0.5" Loaded="Dashboard_Loaded"/>
+            <Controls:Dashboard x:Name="Dashboard" RenderTransformOrigin="0.5,0.5" Loaded="Dashboard_Loaded"/>
         </Viewbox>
 
         <Viewbox Grid.Column="0"  Grid.RowSpan="3" Height = "600" Margin="-100,50,0,0">
@@ -39,10 +39,10 @@
 
         </Viewbox>
 
-        <Controls:Connect x:Name="connect" Loaded="Connect_Loaded" Margin="10,-42,345,41.667" Grid.ColumnSpan="2" />
+        <Controls:Connect x:Name="Connect" Loaded="Connect_Loaded" Margin="10,-42,345,41.667" Grid.ColumnSpan="2" />
 
         
-        <TextBox x:Name="ErrorsMassage"  FontSize="14" FontWeight="Regular" Background="AliceBlue" Foreground="Black" Height="38" Loaded="ErrorsMassage_Loaded" Text="{Binding Path=VM_Error, Mode=OneWay}" IsReadOnly="True"
+        <TextBox x:Name="ErrorsMessage"  FontSize="14" FontWeight="Regular" Background="AliceBlue" Foreground="Black" Height="38" Loaded="ErrorsMessage_Loaded" Text="{Binding Path=VM_Error, Mode=OneWay}" IsReadOnly="True"
                  HorizontalScrollBarVisibility="Auto"
          VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" Margin="0,50,36.333,50.667"/>
     </Grid>

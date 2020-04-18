@@ -24,21 +24,23 @@ namespace FlightSimulatorApp.Views
     /// </summary>
     /// 
 
+    // Map View.
     public partial class Map : UserControl
     {
         MapViewModel mapVM;
-       // Location location = new Location() { Latitude = 0, Longitude = 0 };
 
+        //Ctor for the  Map View.
         public Map()
         {
             InitializeComponent();
         }
 
+        // Intialize the different local components.
         public void Init()
         {
             mapVM = (Application.Current as App).MainViewModel.mapViewModel;
+            // Make the DataContext the MapVM.
             DataContext = mapVM;
-            //this.location = mapVM.VM_Location;
         }
     }
 }

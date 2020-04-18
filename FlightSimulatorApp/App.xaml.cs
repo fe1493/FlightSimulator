@@ -20,7 +20,7 @@ namespace FlightSimulatorApp
 
         public void Application_Startup(object sender, StartupEventArgs e)
         {
-            ISimulatorModel model = new MySimulatorModel();
+            MySimulatorModel model = new MySimulatorModel();
 
             MainViewModel = new MainViewModel(model);
 

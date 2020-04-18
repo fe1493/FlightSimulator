@@ -11,22 +11,26 @@ namespace FlightSimulatorApp.ViewModel
 {
     public class DashboardViewModel : INotifyPropertyChanged
     {
-        private ISimulatorModel model;
-        public DashboardViewModel(ISimulatorModel model)
+        private MySimulatorModel model;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        // Ctor for the DashboardVM.
+        public DashboardViewModel(MySimulatorModel model)
         {
             this.model = model;
             model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
             { NotifyPropertyChanged("VM_" + e.PropertyName); };
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        // Notify when property is changed.
         public void NotifyPropertyChanged(string propName)
         {
             if (this.PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
         }
 
-        //Properties
+        // Properties for the DashboardVM connected to the Model.
 
         public string VM_Indicated_heading_deg
         {
@@ -75,7 +79,5 @@ namespace FlightSimulatorApp.ViewModel
             get
             { return model.Altimeter_indicated_altitude_ft; }
         }
-
-
     }
 }

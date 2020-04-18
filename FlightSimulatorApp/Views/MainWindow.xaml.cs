@@ -17,55 +17,49 @@ using Microsoft.Maps.MapControl.WPF;
 namespace FlightSimulatorApp
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainWindow.xaml.
     /// </summary>
+    
+     // MainWindow.
     public partial class MainWindow : Window
     {
+        // Ctor for the MainWindow.
         public MainWindow()
         {
             InitializeComponent();
         }
- 
-        private void Joystick_Loaded(object sender, RoutedEventArgs e)
-        {
 
-        }
-
-        private void Map_Loaded(object sender, RoutedEventArgs e)
-        {
-            // myMap.Mode = new AerialMode(true);
-        }
-
-        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-
-        }
-
+        // Load and and intialize the Joystick Controller.
         private void JoystickController_Loaded(object sender, RoutedEventArgs e)
         {
             JoystickController.Init();
         }
 
-        
+
+        // Load and and intialize the Connect Mechanism.
 
         private void Connect_Loaded(object sender, RoutedEventArgs e)
         {
-            connect.Init(JoystickController);
+            Connect.Init(JoystickController);
         }
 
+        // Load and and intialize the Dashboard.
         private void Dashboard_Loaded(object sender, RoutedEventArgs e)
         {
-            dashboard.Init();
+            Dashboard.Init();
         }
 
+        // Load and and intialize the Map.
         private void MyMap_Loaded(object sender, RoutedEventArgs e)
         {
             MyMap.Init();
         }
 
-        private void ErrorsMassage_Loaded(object sender, RoutedEventArgs e)
+        // Load and and intialize the Error Message Indicator.
+        private void ErrorsMessage_Loaded(object sender, RoutedEventArgs e)
         {
-            ErrorsMassage.DataContext = (Application.Current as App).MainViewModel.connectViewModel;
+            // Make the DataContext of the Error Message Indicator, the Connect View Model
+            ErrorsMessage.DataContext = (Application.Current as App).MainViewModel.connectViewModel;
         }
     }
 }

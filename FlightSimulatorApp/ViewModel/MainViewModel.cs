@@ -12,13 +12,13 @@ namespace FlightSimulatorApp.ViewModel
     /// </summary>
     public class MainViewModel
     {
-        public ISimulatorModel model;
+        public MySimulatorModel model;
         public ConnectViewModel connectViewModel;
         public DashboardViewModel dashboardViewModel;
         public JoystickViewModel joystickViewModel;
         public MapViewModel mapViewModel;
 
-        public MainViewModel(ISimulatorModel model)
+        public MainViewModel(MySimulatorModel model)
         {
             this.model = model;
             this.connectViewModel = new ConnectViewModel(this.model);

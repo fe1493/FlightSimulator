@@ -21,17 +21,24 @@ namespace FlightSimulatorApp.Views
     /// Interaction logic for Dashboard.xaml
     /// </summary>
 
+    // The Dashboard View.
     public partial class Dashboard : UserControl
     {
+
         DashboardViewModel DashboardVM;
+
+        // Ctor for the Dashboard View.
         public Dashboard()
         {
             InitializeComponent();
         }
 
+        // Intialize the different local components.
         public void Init()
         {
+
             DashboardVM = (Application.Current as App).MainViewModel.dashboardViewModel;
+            // Make the DataContext the Dashboard VM.
             DataContext = DashboardVM;
         }
 
