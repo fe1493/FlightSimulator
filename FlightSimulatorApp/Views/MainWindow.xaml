@@ -10,7 +10,7 @@
        
         xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
         Title="MainWindow" Height="600" Width="978"
-        ResizeMode="NoResize" Background="LightGray">
+        ResizeMode="NoResize" Background="DimGray">
 
     
     <Grid x:Name="MyGrid" Margin="0,0,0,0.5" >

@@ -43,7 +43,7 @@
         </Label>
 
         <Slider x:Name="Throttle" VerticalAlignment="Bottom" Margin="182,0,391,221" ValueChanged="Rudder_ValueChanged" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" RenderTransformOrigin="0.472,0.556" 
-                SelectionStart=".50000"  Minimum="0" Maximum="1" Height="24" Value="{Binding VM_Throttle, Mode=OneWayToSource}" >
+                SelectionStart=".50000" Minimum="0" Maximum="1" Height="24" Value="{Binding VM_Throttle, Mode=OneWayToSource}" >
             <Slider.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
