@@ -9,8 +9,7 @@
         xmlns:Controls="clr-namespace:FlightSimulatorApp.Views"
        
         xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
-        Title="MainWindow" Height="600" Width="1172.5"
-        SizeToContent="WidthAndHeight"
+        Title="MainWindow" Height="600" Width="978"
         ResizeMode="NoResize">
 
     <Grid x:Name="MyGrid" Margin="0,0,0,0.5" >
@@ -19,23 +18,25 @@
             <ColumnDefinition Width ="59*" />
         </Grid.ColumnDefinitions>
 
+
         <Grid.RowDefinitions>
             <RowDefinition Height ="89" />
             <RowDefinition Height="111"/>
             <RowDefinition Height ="auto" />
         </Grid.RowDefinitions>
 
-        <Viewbox Grid.Column="1" Grid.Row="2"  Width="400" Height = "400" Margin="-200,-80,-10,30">
-            <Controls:JoystickController x:Name="JoystickController" Height="507" Loaded="JoystickController_Loaded" Width="784">
+        <Viewbox Grid.Column="1" Grid.Row="2"  Width="400" Height = "400" Margin="-100,-80,-10,30">
+            <Controls:JoystickController x:Name="JoystickController" Height="539" Loaded="JoystickController_Loaded" Width="817" Margin="-120, -289, -60,-210"
+                                         Background="LightGreen">
             </Controls:JoystickController>
         </Viewbox>
 
         <Viewbox Grid.Row="0" Height = "auto" Margin="804,0,-24.667,0" Grid.RowSpan="2" Grid.ColumnSpan="2">
-            <Controls:Dashboard x:Name="Dashboard" RenderTransformOrigin="0.5,0.5" Loaded="Dashboard_Loaded"/>
+            <Controls:Dashboard x:Name="Dashboard" RenderTransformOrigin="0.5,0.5" Margin="-220,-100,0,0" Loaded="Dashboard_Loaded" Background="LightGreen"/>
         </Viewbox>
 
         <Viewbox Grid.Column="0"  Grid.RowSpan="3" Height = "600" Margin="-100,50,0,0">
-            <Controls:Map x:Name ="MyMap" RenderTransformOrigin="0.473,0.483" Height="585" Width="908" Loaded="MyMap_Loaded"/>
+            <Controls:Map x:Name ="MyMap" RenderTransformOrigin="0.473,0.483" Height="438" Width="650" Loaded="MyMap_Loaded"/>
 
         </Viewbox>
 
@@ -45,6 +46,7 @@
         <TextBox x:Name="ErrorsMessage"  FontSize="14" FontWeight="Regular" Background="AliceBlue" Foreground="Black" Height="38" Loaded="ErrorsMessage_Loaded" Text="{Binding Path=VM_Error, Mode=OneWay}" IsReadOnly="True"
                  HorizontalScrollBarVisibility="Auto"
          VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" Margin="0,50,30.333,51.333"/>
+
     </Grid>
 
 </Window>
