@@ -28,36 +28,36 @@
 
 
 
-            <TextBlock FontSize="20" FontWeight="Bold" Grid.ColumnSpan="1" Grid.Row="0" TextAlignment="Center" FontFamily="Ink Free" TextDecorations="Underline" Margin="0,0,0,0.333">Variable</TextBlock>
-            <TextBlock FontSize="20" FontWeight="Bold" Grid.Row="0" TextAlignment="Center" FontFamily="Ink Free" TextDecorations="Underline" Grid.ColumnSpan="2" Margin="237,0,0.333,0.333">Value</TextBlock>
+            <TextBlock FontSize="20" Grid.ColumnSpan="1" Grid.Row="0" TextAlignment="Center" FontFamily="Britannic Bold" TextDecorations="Underline" Margin="0,0,0,0.333" Foreground="White">Variable</TextBlock>
+            <TextBlock FontSize="20" FontWeight="Bold" Grid.Row="0" TextAlignment="Center" FontFamily="Britannic Bold" TextDecorations="Underline" Grid.ColumnSpan="2" Margin="237,0,0.333,0.333" Foreground="White">Value</TextBlock>
 
-            <TextBlock FontSize="15" FontWeight="Bold" Grid.Column="0" TextAlignment="Center" FontFamily="Ink Free" Margin="0,33" Grid.RowSpan="3" >Indicated-Heading-Deg</TextBlock>
-            <TextBlock FontSize="15" FontWeight="Bold" Text="{Binding Path=VM_Indicated_heading_deg, Mode = OneWay, StringFormat={}{0:#.###}}" TextAlignment="Center" FontFamily="Ink Free" Grid.ColumnSpan="2" Margin="237,33,0.333,33" Grid.RowSpan="3"/>
+            <TextBlock FontSize="15" FontWeight="Bold" Grid.Column="0" TextAlignment="Center" FontFamily="Britannic Bold" Margin="0,33" Grid.RowSpan="3" Foreground="White" >Indicated-Heading-Deg</TextBlock>
+            <TextBlock FontSize="15" FontWeight="Bold" Text="{Binding Path=VM_Indicated_heading_deg, Mode = OneWay, StringFormat={}{0:#.###}}" TextAlignment="Center" FontFamily="Britannic Bold" Grid.ColumnSpan="2" Margin="237,33,0.333,33" Grid.RowSpan="3" Foreground="White"/>
 
-            <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="2" Grid.Column="0" TextAlignment="Center" FontFamily="Ink Free" Margin="0,0.333,0,0">Gps-Indicated-Vertical-Speed</TextBlock>
-            <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="2" Text="{Binding Path=VM_Gps_indicated_vertical_speed , Mode = OneWay,  StringFormat={}{0:#.###} }" TextAlignment="Center" FontFamily="Ink Free" Grid.ColumnSpan="2" Margin="237,0.333,0.333,0"/>
+            <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="2" Grid.Column="0" TextAlignment="Center" FontFamily="Britannic Bold" Margin="0,0.333,0,0" Foreground="White">Gps-Indicated-Vertical-Speed</TextBlock>
+            <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="2" Text="{Binding Path=VM_Gps_indicated_vertical_speed , Mode = OneWay,  StringFormat={}{0:#.###} }" TextAlignment="Center" FontFamily="Britannic Bold" Grid.ColumnSpan="2" Margin="237,0.333,0.333,0" Foreground="White"/>
 
-            <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="3" Grid.Column="0" TextAlignment="Center" FontFamily="Ink Free" Margin="0,0,0,0.333">Gps-Indicated-Ground-Speed</TextBlock>
-            <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="3" Text="{Binding Path = VM_Gps_indicated_ground_speed_kt, StringFormat={}{0:#.###}}" TextAlignment="Center" FontFamily="Ink Free" Grid.ColumnSpan="2" Margin="237,0,0.333,0.333"/>
-
-
-
-            <TextBlock FontSize="14" FontWeight="Bold" Grid.Row="3" Grid.Column="0" TextAlignment="Center" FontFamily="Ink Free" Margin="0,33" Grid.RowSpan="3">Airspeed-Indicator-Indicated-Speed-kt</TextBlock>
-            <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="3" Text="{Binding  Path=VM_Airspeed_indicator_indicated_speed_kt , Mode = OneWay, StringFormat={}{0:#.###}}" TextAlignment="Center" FontFamily="Ink Free" Grid.ColumnSpan="2" Margin="237,33,0.333,33" Grid.RowSpan="3"/>
+            <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="3" Grid.Column="0" TextAlignment="Center" FontFamily="Britannic Bold" Margin="0,0,0,0.333" Foreground="White">Gps-Indicated-Ground-Speed</TextBlock>
+            <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="3" Text="{Binding Path = VM_Gps_indicated_ground_speed_kt, StringFormat={}{0:#.###}}" TextAlignment="Center" FontFamily="Britannic Bold" Grid.ColumnSpan="2" Margin="237,0,0.333,0.333" Foreground="White"/>
 
 
-            <TextBlock FontSize="14" FontWeight="Bold" Grid.Row="5" Grid.Column="0" TextAlignment="Center" FontFamily="Ink Free" Margin="0,0.333,0,0">Gps-Indicated-Altitude-ft</TextBlock>
-            <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="5" Text="{Binding  Path=VM_Gps_indicated_altitude_ft, Mode = OneWay,  StringFormat={}{0:#.###}}" TextAlignment="Center" FontFamily="Ink Free" Grid.ColumnSpan="2" Margin="237,0.333,0.333,0"/>
+
+            <TextBlock FontSize="14" FontWeight="Bold" Grid.Row="3" Grid.Column="0" TextAlignment="Center" FontFamily="Britannic Bold" Margin="0,33" Grid.RowSpan="3" Foreground="White">Airspeed-Indicator-Indicated-Speed-kt</TextBlock>
+            <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="3" Text="{Binding  Path=VM_Airspeed_indicator_indicated_speed_kt , Mode = OneWay, StringFormat={}{0:#.###}}" TextAlignment="Center" FontFamily="Britannic Bold" Grid.ColumnSpan="2" Margin="237,33,0.333,33" Grid.RowSpan="3" Foreground="White"/>
 
 
-            <TextBlock FontSize="14" FontWeight="Bold" Grid.Row="6" Grid.Column="0" TextAlignment="Center" FontFamily="Ink Free" Margin="0,0,0,0.333"> Attitude-Indicator-Internal-roll-deg</TextBlock>
-            <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="6" Text="{Binding  Path=VM_Attitude_indicator_internal_roll_deg, Mode = OneWay,  StringFormat={}{0:#.###}}" TextAlignment="Center" FontFamily="Ink Free" Grid.ColumnSpan="2" Margin="237,0,0.333,0.333"/>
+            <TextBlock FontSize="14" FontWeight="Bold" Grid.Row="5" Grid.Column="0" TextAlignment="Center" FontFamily="Britannic Bold" Margin="0,0.333,0,0" Foreground="White">Gps-Indicated-Altitude-ft</TextBlock>
+            <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="5" Text="{Binding  Path=VM_Gps_indicated_altitude_ft, Mode = OneWay,  StringFormat={}{0:#.###}}" TextAlignment="Center" FontFamily="Britannic Bold" Grid.ColumnSpan="2" Margin="237,0.333,0.333,0" Foreground="White"/>
 
-            <TextBlock FontSize="13" FontWeight="Bold" Grid.Row="6" Grid.Column="0" TextAlignment="Center" FontFamily="Ink Free" Margin="0,33" Grid.RowSpan="3"> Attitude-Indicator-Internal-pitch-deg</TextBlock>
-            <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="6" Text="{Binding  Path=VM_Attitude_indicator_internal_pitch_deg, Mode = OneWay,  StringFormat={}{0:#.###}}" TextAlignment="Center" FontFamily="Ink Free" Grid.ColumnSpan="2" Margin="237,33,0.333,33" Grid.RowSpan="3"/>
 
-            <TextBlock FontSize="14" FontWeight="Bold" Grid.Row="8" Grid.Column="0" TextAlignment="Center" FontFamily="Ink Free" Margin="0,0.333,0,0">Altimeter-Indicated-Altitude-ft</TextBlock>
-            <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="8" Text="{Binding Path=VM_Altimeter_indicated_altitude_ft, Mode = OneWay,  StringFormat={}{0:#.###}}" TextAlignment="Center" FontFamily="Ink Free" Grid.ColumnSpan="2" Margin="237,0.333,0.333,0"/>
+            <TextBlock FontSize="14" FontWeight="Bold" Grid.Row="6" Grid.Column="0" TextAlignment="Center" FontFamily="Britannic Bold" Margin="0,0,0,0.333" Foreground="White"> Attitude-Indicator-Internal-roll-deg</TextBlock>
+            <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="6" Text="{Binding  Path=VM_Attitude_indicator_internal_roll_deg, Mode = OneWay,  StringFormat={}{0:#.###}}" TextAlignment="Center" FontFamily="Britannic Bold" Grid.ColumnSpan="2" Margin="237,0,0.333,0.333" Foreground="White"/>
+
+            <TextBlock FontSize="13" FontWeight="Bold" Grid.Row="6" Grid.Column="0" TextAlignment="Center" FontFamily="Britannic Bold" Margin="0,33" Grid.RowSpan="3" Foreground="White"> Attitude-Indicator-Internal-pitch-deg</TextBlock>
+            <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="6" Text="{Binding  Path=VM_Attitude_indicator_internal_pitch_deg, Mode = OneWay,  StringFormat={}{0:#.###}}" TextAlignment="Center" FontFamily="Britannic Bold" Grid.ColumnSpan="2" Margin="237,33,0.333,33" Grid.RowSpan="3" Foreground="White"/>
+
+            <TextBlock FontSize="14" FontWeight="Bold" Grid.Row="8" Grid.Column="0" TextAlignment="Center" FontFamily="Britannic Bold" Margin="0,0.333,0,0" Foreground="White">Altimeter-Indicated-Altitude-ft</TextBlock>
+            <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="8" Text="{Binding Path=VM_Altimeter_indicated_altitude_ft, Mode = OneWay,  StringFormat={}{0:#.###}}" TextAlignment="Center" FontFamily="Britannic Bold" Grid.ColumnSpan="2" Margin="237,0.333,0.333,0" Foreground="White"/>
 
 
 
