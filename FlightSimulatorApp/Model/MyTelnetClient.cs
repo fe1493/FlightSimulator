@@ -19,7 +19,6 @@ namespace FlightSimulatorApp.Model
         TcpClient clientSocket;
         StreamReader sr;
         StreamWriter sw;
-        private Mutex mutex;
         public Boolean isConnect = false;
 
         // Make the connection with the server.
@@ -30,7 +29,6 @@ namespace FlightSimulatorApp.Model
                 if (!isConnect)
                 {
                     clientSocket = new TcpClient();
-                    mutex = new Mutex();
                     // Try to connect.
                     var result = clientSocket.BeginConnect(ip, port, null, null);
                     // Wait 1 seconds if the server is not responding.
@@ -67,6 +65,11 @@ namespace FlightSimulatorApp.Model
                     Console.WriteLine("Sent: " + command);
                 }
             }
+            catch(IOException e)
+            {
+                (Application.Current as App).MainViewModel.model.Error = "Error in Connection. Press \"Connect\" to reconnect.\n";
+                Disconnect();
+            }
             catch(Exception e)
             {
                 throw new Exception(e.Message);
@@ -100,7 +103,13 @@ namespace FlightSimulatorApp.Model
                 }
                 return null;
             }
-            catch(Exception e)
+            catch (IOException e)
+            {
+                (Application.Current as App).MainViewModel.model.Error = "Error in Connection. Press \"Connect\" to reconnect.\n";
+                Disconnect();
+                return null;
+            }
+            catch (Exception e)
             {
                 throw new Exception(e.Message);
             }

@@ -32,10 +32,14 @@ namespace FlightSimulatorApp.Model
         {
             try
             {
-                // Reset the values at the dashboard and the joystick.
-                Reset();
-                telnetClient.Connect(ip, port);
-                this.Start();
+                if (!telnetClient.isConnect)
+                {
+                    // Reset the values at the dashboard and the joystick.
+                    Reset();
+                    mutex = new Mutex();
+                    telnetClient.Connect(ip, port);
+                    this.Start();
+                }
             }
             catch (Exception e)
             {
@@ -400,38 +404,66 @@ namespace FlightSimulatorApp.Model
 
         public void SetThrottle(string s)
         {
-            mutex.WaitOne();
-            string toSend = "set " + "/controls/engines/current-engine/throttle " + s + "\n";
-            telnetClient.Write(toSend);
-            telnetClient.Read();
-            mutex.ReleaseMutex();
+            try
+            {
+                mutex.WaitOne();
+                string toSend = "set " + "/controls/engines/current-engine/throttle " + s + "\n";
+                telnetClient.Write(toSend);
+                telnetClient.Read();
+                mutex.ReleaseMutex();
+            }
+            catch (Exception e)
+            {
+                Error = e.Message + "\n";
+            }
         }
 
         public void SetRudder(string s)
         {
-            mutex.WaitOne();
-            string toSend = "set " + "/controls/flight/rudder " + s + "\n";
-            telnetClient.Write(toSend);
-            telnetClient.Read();
-            mutex.ReleaseMutex();
+            try
+            {
+                mutex.WaitOne();
+                string toSend = "set " + "/controls/flight/rudder " + s + "\n";
+                telnetClient.Write(toSend);
+                telnetClient.Read();
+                mutex.ReleaseMutex();
+            }
+            catch (Exception e)
+            {
+                Error = e.Message + "\n";
+            }
         }
 
         public void SetElevator(string s)
         {
-            mutex.WaitOne();
-            string toSend = "set " + "/controls/flight/elevator " + s + "\n";
-            telnetClient.Write(toSend);
-            telnetClient.Read();
-            mutex.ReleaseMutex();
+            try
+            {
+                mutex.WaitOne();
+                string toSend = "set " + "/controls/flight/elevator " + s + "\n";
+                telnetClient.Write(toSend);
+                telnetClient.Read();
+                mutex.ReleaseMutex();
+            }
+            catch (Exception e)
+            {
+                Error = e.Message + "\n";
+            }
         }
 
         public void SetAileron(string s)
         {
-            mutex.WaitOne();
-            string toSend = "set " + "/controls/flight/aileron " + s + "\n";
-            telnetClient.Write(toSend);
-            telnetClient.Read();
-            mutex.ReleaseMutex();
+            try
+            {
+                mutex.WaitOne();
+                string toSend = "set " + "/controls/flight/aileron " + s + "\n";
+                telnetClient.Write(toSend);
+                telnetClient.Read();
+                mutex.ReleaseMutex();
+            }
+            catch (Exception e)
+            {
+                Error = e.Message + "\n";
+            }
         }
 
         // Error message property

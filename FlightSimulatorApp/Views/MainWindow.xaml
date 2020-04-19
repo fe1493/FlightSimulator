@@ -13,6 +13,7 @@
         SizeToContent="WidthAndHeight"
         ResizeMode="NoResize">
 
+    
     <Grid x:Name="MyGrid" Margin="0,0,0,0.5" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width ="140*" />
@@ -42,7 +43,7 @@
         <Controls:Connect x:Name="Connect" Loaded="Connect_Loaded" Margin="10,-42,345,41.667" Grid.ColumnSpan="2" />
 
 
-        <TextBox x:Name="ErrorsMessage"  FontSize="14" FontWeight="Regular" Background="AliceBlue" Foreground="Black" Height="38" Loaded="ErrorsMessage_Loaded" Text="{Binding Path=VM_Error, Mode=OneWay}" IsReadOnly="True"
+        <TextBox x:Name="ErrorsMessage" Style="{StaticResource ConsoleTextBox}"  FontSize="14" FontWeight="Regular" Background="AliceBlue" Foreground="Black" Height="38" Loaded="ErrorsMessage_Loaded" Text="{Binding Path=VM_Error, Mode=OneWay}" IsReadOnly="True"
                  HorizontalScrollBarVisibility="Auto"
          VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" Margin="0,50,30.333,51.333"/>
     </Grid>
