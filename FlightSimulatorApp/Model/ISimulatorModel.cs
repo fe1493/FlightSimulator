@@ -13,7 +13,7 @@ namespace FlightSimulatorApp.Model
     public interface ISimulatorModel : INotifyPropertyChanged
     {
         // Telnet Clinet methods.
-        void Connect(string ip, int port);
+        void Connect(string ip, string port);
         void Disconnect();
         void Start();
 

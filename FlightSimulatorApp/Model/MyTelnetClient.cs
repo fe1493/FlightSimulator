@@ -22,7 +22,7 @@ namespace FlightSimulatorApp.Model
         public Boolean isConnect = false;
 
         // Make the connection with the server.
-        public void Connect(string ip, int port)
+        public void Connect(string ip, string port)
         {
             try
             {
@@ -30,7 +30,7 @@ namespace FlightSimulatorApp.Model
                 {
                     clientSocket = new TcpClient();
                     // Try to connect.
-                    var result = clientSocket.BeginConnect(ip, port, null, null);
+                    var result = clientSocket.BeginConnect(ip, Int32.Parse(port), null, null);
                     // Wait 1 seconds if the server is not responding.
                     var success = result.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1));
                     // If failed, throw exception.
@@ -62,10 +62,10 @@ namespace FlightSimulatorApp.Model
                 {
                     sw.WriteLine(command);
                     sw.Flush();
-                    Console.WriteLine("Sent: " + command);
+                    // Console.WriteLine("Sent: " + command);
                 }
             }
-            catch(IOException e)
+            catch(IOException)
             {
                 (Application.Current as App).MainViewModel.model.Error = "Error in Connection. Press \"Connect\" to reconnect.\n";
                 Disconnect();
@@ -103,7 +103,7 @@ namespace FlightSimulatorApp.Model
                 }
                 return null;
             }
-            catch (IOException e)
+            catch (IOException)
             {
                 (Application.Current as App).MainViewModel.model.Error = "Error in Connection. Press \"Connect\" to reconnect.\n";
                 Disconnect();

@@ -45,7 +45,8 @@
 
         <TextBox x:Name="ErrorsMessage" Style="{StaticResource ConsoleTextBox}"  FontSize="14" FontWeight="Regular" Background="AliceBlue" Foreground="Black" Height="38" Loaded="ErrorsMessage_Loaded" Text="{Binding Path=VM_Error, Mode=OneWay}" IsReadOnly="True"
                  HorizontalScrollBarVisibility="Auto"
-         VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" Margin="0,50,36,51.333"/>
+         VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" Margin="0,50,36,51.333"> 
+  </TextBox>
 
     </Grid>
 

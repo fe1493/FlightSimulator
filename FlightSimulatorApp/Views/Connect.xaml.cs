@@ -37,7 +37,14 @@ namespace FlightSimulatorApp.Views
         // Connect to the server and reset all values.
         public void ConnectButton_Click(object sender, RoutedEventArgs e)
         {
-            vm.Connect(IP_Textbox.Text, Int32.Parse(PORT_Textbox.Text));
+            try
+            {
+                vm.Connect(IP_Textbox.Text, PORT_Textbox.Text);
+            }
+            catch (Exception)
+            {
+
+            }
             joystickController.Aileron.Value = 0;
             joystickController.Throttle.Value = 0;
         }
